@@ -41,9 +41,11 @@ for woord in lijst_met_woorden:
   # tellen woorden, maar je kan ook lengte lijst bepalen om zelfde resultaat te krijgen
   aantal_woorden = aantal_woorden + 1
 
-# vergelijk de 2 sets wat ze gemeenschappelijk hebben
-print(f"Alle woorden die omgekeerd ook bestaand is het aantal {len(alle_omgekeerde_woorden.intersection(alle_woorden))}")
 
 print(f"Aantal woorden in bestand {bestand} is {aantal_woorden}")
+# langste woord
 print(f"Langeste woorde is {langstewoord} met lenge {str(langstelengte)}")
-print(f"Aantal gevonden palindromen in {len(lijst_met_palindromen)}")
+# palindromen gevonden
+print(f"Aantal gevonden palindromen is {len(lijst_met_palindromen)}")
+# vergelijk de 2 sets wat ze gemeenschappelijk hebben
+print(f"Alle woorden die omgekeerd ook bestaand is het aantal {len(alle_omgekeerde_woorden.intersection(alle_woorden))}")
