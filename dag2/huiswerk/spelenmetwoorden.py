@@ -1,3 +1,4 @@
+from prettytable import PrettyTable
 # Spelen met woorden
 # Wat Python code om alvast aan de slag te kunnen
 # Het bestand 'woorden.txt.zip' staat op deze pagina
