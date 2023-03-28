@@ -11,6 +11,9 @@ bestand_met_woorden.close()
 aantal_woorden = 0
 langestewoord = ''
 langstelengte = 0
+lijst_met_palindromen = []
+alle_woorden = set()
+alle_omgekeerde_woorden = set()
 
 for woord in lijst_met_woorden:
   # debug print woord
@@ -22,11 +25,25 @@ for woord in lijst_met_woorden:
     langstewoord = woord
   
   # bepalen palindroom
-  for 
+  woord_omgekeerd = ""
+  woord_omgekeerd_lijst = reversed(woord)
+  for letter in woord_omgekeerd_lijst:
+    woord_omgekeerd += letter
+
+  # maken sets
+  alle_woorden.add(woord)
+  alle_omgekeerde_woorden.add(woord_omgekeerd)
+
+  if woord_omgekeerd == woord:
+    #print(f"Palindroom gevonden: {woord}")
+    lijst_met_palindromen.append(woord) 
 
   # tellen woorden, maar je kan ook lengte lijst bepalen om zelfde resultaat te krijgen
   aantal_woorden = aantal_woorden + 1
 
-print(len(lijst_met_woorden))
+# vergelijk de 2 sets wat ze gemeenschappelijk hebben
+print(f"Alle woorden die omgekeerd ook bestaand is het aantal {len(alle_omgekeerde_woorden.intersection(alle_woorden))}")
+
 print(f"Aantal woorden in bestand {bestand} is {aantal_woorden}")
 print(f"Langeste woorde is {langstewoord} met lenge {str(langstelengte)}")
+print(f"Aantal gevonden palindromen in {len(lijst_met_palindromen)}")
