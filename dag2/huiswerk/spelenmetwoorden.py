@@ -83,6 +83,13 @@ def vraag_om_woord():
     print(f"\n{bcolors.OKGREEN}{str(woord_onderdeel)}{bcolors.ENDC} woorden gevonden waar {bcolors.OKGREEN}{mijnwoord}{bcolors.ENDC} onderdeel van is")
   else:
     print(f"\n{bcolors.WARNING}Niet gevonden dat deze ergens onderdeel van is{bcolors.ENDC}")
+  # welke woorden kan je maken met letters van het woord
+  # zet mijnwoord in set
+  set_mijnwoord = set(mijnwoord)
+  for woord in alle_woorden:
+    set_woord = set(woord)
+    if set_woord == set_mijnwoord and len(woord) == len(mijnwoord):
+      print(f"{bcolors.OKGREEN}{woord}{bcolors.ENDC} kan worden gemaakt uit {bcolors.OKBLUE}{mijnwoord}{bcolors.ENDC}")
   return True
 
 
