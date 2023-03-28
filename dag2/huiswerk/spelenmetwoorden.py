@@ -90,6 +90,12 @@ def vraag_om_woord():
     set_woord = set(woord)
     if set_woord == set_mijnwoord and len(woord) == len(mijnwoord):
       print(f"{bcolors.OKGREEN}{woord}{bcolors.ENDC} kan worden gemaakt uit {bcolors.OKBLUE}{mijnwoord}{bcolors.ENDC}")
+  # wat rijmt er op dit woord?
+  rijm_mijnwoord = mijnwoord[-3:]
+  for woord in alle_woorden:
+    rijm_woord = woord[-3:]
+    if rijm_mijnwoord == rijm_woord:
+      print(f"Mijn woord {bcolors.OKBLUE}{mijnwoord}{bcolors.ENDC} rijmt op {bcolors.OKGREEN}{woord}{bcolors.ENDC}")
   return True
 
 
