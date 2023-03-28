@@ -44,7 +44,7 @@ for woord in lijst_met_woorden:
 
 print(f"Aantal woorden in bestand {bestand} is {aantal_woorden}")
 # langste woord
-print(f"Langeste woorde is {langstewoord} met lenge {str(langstelengte)}")
+print(f"Langeste woorde is {langstewoord} met lengte {str(langstelengte)}")
 # palindromen gevonden
 print(f"Aantal gevonden palindromen is {len(lijst_met_palindromen)}")
 # vergelijk de 2 sets wat ze gemeenschappelijk hebben
