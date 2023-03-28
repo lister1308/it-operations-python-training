@@ -5,14 +5,14 @@ Het bestand met woorden vind je hier. Alternatief kun je eens eens een blik werp
 
 In deze opdracht probeer je antwoord te geven op enkele van de volgende vragen:
 
-Aantal woorden in dit bestand (zie voorbeeld hierna)
-Het woord met de meeste letters
-Alle palindromen, zoals lepel
-Alle woorden die ‘omgekeerd’ ook voorkomen in de lijst
-Of een ingevoerd woord voorkomt in de lijst, of als onderdeel van woorden
-Alle woorden uit de woordenlijst die je kunt maken van de letters van een ingevoerd woord (anagrammen)
-Woorden die rijmen op een ingevoerd woord
-Maak een raadspel, waarbij je alle letters van het woord in alfabetische volgorde plaatst en waar de gebruiker het oorspronkelijke woord moet raden
+1 Aantal woorden in dit bestand (zie voorbeeld hierna)
+2 Het woord met de meeste letters
+3 Alle palindromen, zoals lepel
+4 Alle woorden die ‘omgekeerd’ ook voorkomen in de lijst
+5 Of een ingevoerd woord voorkomt in de lijst, of als onderdeel van woorden
+6 Alle woorden uit de woordenlijst die je kunt maken van de letters van een ingevoerd woord (anagrammen)
+7 Woorden die rijmen op een ingevoerd woord
+8 Maak een raadspel, waarbij je alle letters van het woord in alfabetische volgorde plaatst en waar de gebruiker het oorspronkelijke woord moet raden
 Het is niet nodig om elk van de vragen te beantwoorden. Maak er wat leuks van!
 
 # Spelen met woorden
