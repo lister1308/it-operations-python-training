@@ -3,7 +3,7 @@
 # Het bestand 'woorden.txt.zip' staat op deze pagina
 
 bestand = "woorden.txt"
-bestand_met_woorden = open(bestand, "rt") # alleen-lezen van tekst
+bestand_met_woorden = open(bestand, "r") # alleen-lezen van tekst
 # lijst_met_woorden = bestand_met_woorden.readlines()
 lijst_met_woorden = bestand_met_woorden.read().splitlines()
 bestand_met_woorden.close()
@@ -44,8 +44,8 @@ for woord in lijst_met_woorden:
 
 print(f"Aantal woorden in bestand {bestand} is {aantal_woorden}")
 # langste woord
-print(f"Langeste woord is {langstewoord} met lengte {str(langstelengte)}")
+print(f"Langste woord is {langstewoord} met lengte {str(langstelengte)}")
 # palindromen gevonden
-print(f"Aantal gevonden palindromen is {len(lijst_met_palindromen)}")
+print(f"Aantal gevonden palindroom woorden is {len(lijst_met_palindromen)}")
 # vergelijk de 2 sets wat ze gemeenschappelijk hebben
 print(f"Alle woorden die omgekeerd ook bestaan zijn er {len(alle_omgekeerde_woorden.intersection(alle_woorden))}")
