@@ -1,0 +1,32 @@
+Spelen met woorden
+In deze opdracht ga je spelen met woorden. We hebben een bestand met veel Nederlandse woorden. In deze opdracht ga je met je Python-kennis tot nu toe proberen om wat van deze woorden te maken.
+
+Het bestand met woorden vind je hier. Alternatief kun je eens eens een blik werpen op de OpenTaal woordenlijst.
+
+In deze opdracht probeer je antwoord te geven op enkele van de volgende vragen:
+
+Aantal woorden in dit bestand (zie voorbeeld hierna)
+Het woord met de meeste letters
+Alle palindromen, zoals lepel
+Alle woorden die ‘omgekeerd’ ook voorkomen in de lijst
+Of een ingevoerd woord voorkomt in de lijst, of als onderdeel van woorden
+Alle woorden uit de woordenlijst die je kunt maken van de letters van een ingevoerd woord (anagrammen)
+Woorden die rijmen op een ingevoerd woord
+Maak een raadspel, waarbij je alle letters van het woord in alfabetische volgorde plaatst en waar de gebruiker het oorspronkelijke woord moet raden
+Het is niet nodig om elk van de vragen te beantwoorden. Maak er wat leuks van!
+
+# Spelen met woorden
+# Wat Python code om alvast aan de slag te kunnen
+# Het bestand 'woorden.txt.zip' staat op deze pagina
+
+bestand_met_woorden = open("woorden.txt", "rt") # alleen-lezen van tekst
+# lijst_met_woorden = bestand_met_woorden.readlines()
+lijst_met_woorden = bestand_met_woorden.read().splitlines()
+bestand_met_woorden.close()
+
+aantal_woorden = 0
+for woord in lijst_met_woorden:
+  print(woord)
+  aantal_woorden = aantal_woorden + 1
+
+print(aantal_woorden)
