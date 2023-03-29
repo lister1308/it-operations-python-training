@@ -118,7 +118,7 @@ def vraag_om_woord():
 
 def speel_spelletje():
   random_woord = random.choice(list(alle_woorden))
-  print(f"\nEr is een woord gekozen die je mag raden. In alfabetische volgorde is het woord: {bcolors.OKGREEN}",end='')
+  print(f"\nEr is een woord gekozen die je mag raden. De letters van het woord in alfabetische volgorde zijn: {bcolors.OKGREEN}",end='')
   sorted_random_woord = sorted(random_woord)
   for letter in sorted_random_woord:
     print(letter,end='')
