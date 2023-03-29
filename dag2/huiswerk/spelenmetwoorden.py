@@ -122,8 +122,18 @@ def speel_spelletje():
   sorted_random_woord = sorted(random_woord)
   for letter in sorted_random_woord:
     print(letter,end='')
-  print(f"{bcolors.ENDC}\nWat is het woord: ",end='')
+
+  print(f"{bcolors.ENDC}\nWat is het woord (leeg = hint, tik iets om te raden of stoppen): ",end='')
   raad_woord = input(f"{bcolors.OKCYAN}")
+
+  while raad_woord == '':
+    random.shuffle(sorted_random_woord)
+    print(f"{bcolors.ENDC}Als je niets tikt probeer ik je te helpen, shuffle woord: {bcolors.OKGREEN}",end='')
+    for letter in sorted_random_woord:
+      print(letter,end='')
+    print(f"{bcolors.ENDC}\nWat is het woord (leeg = hint, tik iets om te raden of stoppen): ",end='')
+    raad_woord = input(f"{bcolors.OKCYAN}")
+
   if raad_woord == random_woord:
     print(f"{bcolors.HEADER}Je hebt het geraden!!!!{bcolors.ENDC}")
   else:
