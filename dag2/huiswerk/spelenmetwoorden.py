@@ -120,8 +120,17 @@ def vraag_om_woord():
   """
   return True
 
+def speel_spelletje():
+  
 # laat eerst wat info van de lijst zien
 verzamel_wat_statistieken()
 # loop waarin je woord kan ingeven waar dan wat zaken mee wordt bekeken in de gehele lijst
 while vraag_om_woord():
   print("")
+
+wil_je_spelen = input("\nOf wil je nog een spelletje spelen? (j/n): ")
+if wil_je_spelen == 'n' or wil_je_spelen == '':
+  print("Blijkbaar niet dus. ",end='')
+else:
+  speel_spelletje()
+print("Tot ziens!")
