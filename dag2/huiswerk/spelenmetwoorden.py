@@ -1,6 +1,7 @@
 # Spelen met woorden
 # Wat Python code om alvast aan de slag te kunnen
 # Het bestand 'woorden.txt.zip' staat op deze pagina
+import random
 
 # gebruik van kleuren op de prompt
 class bcolors:
@@ -92,17 +93,12 @@ def vraag_om_woord():
     if set_woord == set_mijnwoord and len(woord) == len(mijnwoord):
       print(f"{bcolors.OKGREEN}{woord}{bcolors.ENDC} kan worden gemaakt uit {bcolors.OKBLUE}{mijnwoord}{bcolors.ENDC}")
   """
-  print (f"Zoeken naar anagrammen van het woord {bcolors.OKGREEN}{mijnwoord}{bcolors.ENDC}")
-  list_mijnwoord = list(mijnwoord)
-  list_mijnwoord.sort()
+  #  anagrammen, sorted oplossing van Wouter, daarvoor gedaan door eerst zelf naar list te converteren met var_list = list(string) en dan var_list.sort.
+  print (f"Zoeken naar anagrammen van het woord {bcolors.OKGREEN}{mijnwoord}{bcolors.ENDC}:")
   for woord in alle_woorden:
-    if len(woord) != len(mijnwoord):
+    if woord == mijnwoord:
       continue
-    elif woord == mijnwoord:
-      continue
-    list_woord = list(woord)
-    list_woord.sort()
-    if list_mijnwoord == list_woord:
+    if (sorted(woord) == sorted(mijnwoord)):
       print(f"{bcolors.OKGREEN}{woord}{bcolors.ENDC}",end=' ')
   print("")
 
@@ -121,7 +117,23 @@ def vraag_om_woord():
   return True
 
 def speel_spelletje():
-  
+  random_woord = random.choice(list(alle_woorden))
+  print(f"\nEr is een woord gekozen die je mag raden. In alfabetische volgorde is het woord: {bcolors.OKGREEN}",end='')
+  sorted_random_woord = sorted(random_woord)
+  for letter in sorted_random_woord:
+    print(letter,end='')
+  print(f"{bcolors.ENDC}\nWat is het woord: ",end='')
+  raad_woord = input(f"{bcolors.OKCYAN}")
+  if raad_woord == random_woord:
+    print(f"{bcolors.HEADER}Je hebt het geraden!!!!{bcolors.ENDC}")
+  else:
+    print(f"{bcolors.WARNING}Helaas, het woord was {bcolors.OKGREEN}{random_woord}{bcolors.ENDC}")
+
+  if (input("Wil je nog een keer spelen (j/n): ") == "j"):
+    speel_spelletje()
+  else:
+    print("Ok. ",end='')
+
 # laat eerst wat info van de lijst zien
 verzamel_wat_statistieken()
 # loop waarin je woord kan ingeven waar dan wat zaken mee wordt bekeken in de gehele lijst
