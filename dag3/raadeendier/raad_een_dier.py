@@ -1,3 +1,15 @@
+"""
+Opdracht:
+- Zorg ervoor dat de vragen en de dieren zo kort mogelijk worden opgeslagen, zonder voorzetsels (‘een’ kat) en zonder vraagtekens en hoofdletters
+- Zorg ervoor dat de communicatie met de gebruiker wel netjes met volledige zinnen gebeurt
+- Sla de data op in een bestand en vraag dit bij het opstarten van het programma weer op
+- Gebruik de pickle of json module
+- Maak het mogelijk om vragen achteraf te wijzigen
+- Gebruik kleur en opmaak bij het tonen van vragen en antwoorden
+- Bouw leuke features in zoals ‘laat alle dieren zien’
+"""
+
+
 # Het programma begint met een basisset aan dieren
 # De gebruikte datastructuur is een Python dictionary
 import os
