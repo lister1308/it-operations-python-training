@@ -1,0 +1,10 @@
+e kunt dit programma op de volgende manier uitbreiden (en op nog veel meer manieren, verzin zelf wat mogelijkheden!):
+
+Zorg ervoor dat de vragen en de dieren zo kort mogelijk worden opgeslagen, zonder voorzetsels (‘een’ kat) en zonder vraagtekens en hoofdletters
+Zorg ervoor dat de communicatie met de gebruiker wel netjes met volledige zinnen gebeurt
+Sla de data op in een bestand en vraag dit bij het opstarten van het programma weer op
+Gebruik de pickle of json module
+Maak het mogelijk om vragen achteraf te wijzigen
+Gebruik kleur en opmaak bij het tonen van vragen en antwoorden
+Bouw leuke features in zoals ‘laat alle dieren zien’
+Maak er wat moois van en lever je nieuwe Python programma in. Plak de broncode in het Edit-scherm dat je op deze pagina ziet, of stuur een link naar een GitHub repository.
