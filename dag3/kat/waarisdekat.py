@@ -32,14 +32,11 @@ def verplaats_kat(doos_met_kat):
     # als in 1, kan je alleen naar 2, als in aantal_dozen, dan alleen naar links
     # geeft nieuwe doos terug
 
-    '''als doos_met_kat is 1 dan
-          doos_met_kat ← doos_met_kat + 1
-       anders als doos_met_kat is aantal_dozen dan
-         doos_met_kat ← doos_met_kat – 1
-       anders
-          doos_met_kat ← doos_met_kat + toevalsgetal: -1 of 1
-     '''
-    
+    # verplaats de kat, 1 naar links of rechts
+    # als in 1, kan je alleen naar 2, als in aantal_dozen, dan alleen naar links
+    # geeft nieuwe doos terug
+
+       
     if doos_met_kat == 1:
         # verplaats kat naar rechts
         doos_met_kat += 1
@@ -51,6 +48,8 @@ def verplaats_kat(doos_met_kat):
         keuze=[-1,1]
         doos_met_kat += random.choice(keuze)
 
+    return doos_met_kat
+    
 
 
 # lus die loopt zolang kat gevonden = False
