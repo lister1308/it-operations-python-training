@@ -13,6 +13,7 @@ Opdracht:
 # De gebruikte datastructuur is een Python dictionary
 from os.path import exists
 import json
+import keyboard
 
 bestand = 'dieren.json'
 
@@ -49,48 +50,6 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
-"""
-menu_options = {
-    1: 'Speel "Raad een Dier"',
-    2: 'Laat alle dieren zien',
-    3: 'Wijzig een vraag',
-    4: 'Exit',
-}
-
-def print_menu():
-    for key in menu_options.keys():
-        print (key, '--', menu_options[key] )
-
-def option1():
-     raad_het_dier()
-
-def option2():
-     print('Laat alle dieren zien')
-
-def option3():
-     print('Wijzig een vraag')
-
-if __name__=='__main__':
-    while(True):
-        print_menu()
-        option = ''
-        try:
-            option = int(input('Maak een keuze: '))
-        except:
-            print('Invoer was geen nummer.')
-        #BEpaal wat er moete gebeuren op basis van de keuze
-        if option == 1:
-           option1()
-        elif option == 2:
-            option2()
-        elif option == 3:
-            option3()
-        elif option == 4:
-            print('Bedankt voor het spelen!')
-            exit()
-        else:
-            print('Ongeldige optie. Kies een optie uit het menu.')
-"""
 
 # Herhalen zolang de gebruiker dat wil
 def raad_het_dier():
@@ -163,5 +122,42 @@ def is_ja(tekst):
     else:
         return False
 
-dieren = lees_dieren_in(bestand)
-raad_het_dier()
+def menu():
+    while True:
+        print('''
+         _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _          _ .-') _              ('-.  _  .-')   
+( \( -O )   ( OO ).-.  ( OO ).-.( (  OO) )       ( OO )  / _(  OO) (  OO) )        ( (  OO) )           _(  OO)( \( -O )  
+ ,------.   / . --. /  / . --. / \     .'_       ,--. ,--.(,------./     '._        \     .'_   ,-.-') (,------.,------.  
+ |   /`. '  | \-.  \   | \-.  \  ,`'--..._)      |  | |  | |  .---'|'--...__)       ,`'--..._)  |  |OO) |  .---'|   /`. ' 
+ |  /  | |.-'-'  |  |.-'-'  |  | |  |  \  '      |   .|  | |  |    '--.  .--'       |  |  \  '  |  |  \ |  |    |  /  | | 
+ |  |_.' | \| |_.'  | \| |_.'  | |  |   ' |      |       |(|  '--.    |  |          |  |   ' |  |  |(_/(|  '--. |  |_.' | 
+ |  .  '.'  |  .-.  |  |  .-.  | |  |   / :      |  .-.  | |  .--'    |  |          |  |   / : ,|  |_.' |  .--' |  .  '.' 
+ |  |\  \   |  | |  |  |  | |  | |  '--'  /      |  | |  | |  `---.   |  |          |  '--'  /(_|  |    |  `---.|  |\  \  
+ `--' '--'  `--' `--'  `--' `--' `-------'       `--' `--' `------'   `--'          `-------'   `--'    `------'`--' '--'
+              ''')
+        print("")
+        print("1. Speel het spel")
+        print("2. Toon alle dieren")
+        print("3. Wijzig de vragen")
+        keuze = input("Voer uw keuze in (1-3): ")
+
+        if keuze.isnumeric() and int(keuze) in range(0, 4):
+            if keuze == "1":
+                # Voer acties uit voor optie 1
+                #print("Je hebt optie 1 gekozen.")
+                raad_het_dier()
+            elif keuze == "2":
+                # Voer acties uit voor optie 2
+                print("Je hebt optie 2 gekozen.")
+            elif keuze == "3":
+                # Voer acties uit voor optie 3
+                print("Je hebt optie 3 gekozen.")
+            else:
+                # Voer acties uit voor optie 0
+                print("Je hebt optie 0 gekozen.")
+            break
+        else:
+            print("Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in.")
+
+dieren = lees_dieren_in(bestand)            
+menu()
