@@ -1,0 +1,55 @@
+De Waar is de kat geweest? simulatie
+We hebben te maken met een lastige situatie: in een aantal naast elkaar staande verhuisdozen zit onze kat, die niet van plan is zich nog weer te laten zien. De sneakert heeft het voor elkaar om zich van de ene doos naar de andere ongezien te verplaatsen. Wij kunnen slechts één verhuisdoos tegelijk bekijken en we kiezen die doos dus zorgvuldig! In iedere beurt:
+
+We kiezen een doos om in te kijken
+We openen die doos
+We kijken of de kat er in zit
+We sluiten de doos
+De kat verplaatst zich nu één doos naar links of naar rechts
+
+
+We gaan een programma schrijven die dit doet:
+
+Plaats de kat in één van de vijf dozen
+Vraag een doosnummer aan de gebruiker
+Als het doosnummer gelijk is aan de doos waar de kat in zit dan is de simulatie geëindigd en heeft de gebruiker gewonnen
+Verplaats de kat één positie naar links of naar rechts (in de meeste linkse doos kan de kat alleen naar rechts, in de meest rechtste doos kan de kat alleen naar links)
+Herhaal vanaf stap 2
+In pseudocode is dat ongeveer dit:
+
+doos_met_kat ← toevalsgetal tussen 1 en aantal_dozen
+zolang niet kat_gevonden
+  vraag doos_te_openen aan de gebruiker
+  verhoog aantal_pogingen
+  als doos_te_openen gelijk aan doos_met_kat dan
+    melding Kat gevonden in aantal_pogingen pogingen
+    kat_gevonden ← waar
+  anders
+    melding Kat niet gevonden
+  verplaats de kat
+Het verplaatsen van de kat zal ongeveer als volgt gaan:
+
+als doos_met_kat is 1 dan
+  doos_met_kat ← doos_met_kat + 1
+anders als doos_met_kat is aantal_dozen dan
+  doos_met_kat ← doos_met_kat – 1
+anders
+  doos_met_kat ← doos_met_kat + toevalsgetal: -1 of 1
+Je hebt misschien de volgende Python functies nodig:
+
+input() of raw_input()
+print()
+randint() uit de module Random
+choice() uit de module Random
+Maak het programma zo elegant mogelijk aan de hand van de pseudocode. Je zou ongeveer zo kunnen beginnen (maar laat je daar niet door van de wijs brengen, er zijn veel wegen naar de kat!):
+
+# Initialisatie
+aantal_dozen = 5
+doos_met_kat = randint(1, aantal_dozen)
+ronde_nummer = 0
+kat_gevonden = False
+
+# Start van de simulatie
+while not ..
+  doos_te_openen = ..
+  if ..
