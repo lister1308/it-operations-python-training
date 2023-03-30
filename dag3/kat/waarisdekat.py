@@ -20,6 +20,12 @@ def welke_doos():
 def controleer_inhoud(doos,dooskat):
     # kijk of opgegeven doos is doos waar kat zit
     # geef terug True of False 
+    # Lucas
+    if doos == dooskat:
+        return True
+    else:
+        return False
+
 
 def verplaats_kat(doos_met_kat):
     # verplaats de kat, 1 naar links of rechts
