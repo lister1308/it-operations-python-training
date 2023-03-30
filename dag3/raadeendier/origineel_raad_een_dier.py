@@ -1,7 +1,5 @@
 # Het programma begint met een basisset aan dieren
 # De gebruikte datastructuur is een Python dictionary
-import os
-import json
 
 dieren = {
     'vraag': 'Heeft het dier 4 poten?',
@@ -12,21 +10,6 @@ dieren = {
     },
     'ja': 'olifant'
 }
-
-# save huidige dictionary in directory
-with open('dieren.json', 'w') as fp:
-    json.dump(dieren, fp)
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
 
 # Herhalen zolang de gebruiker dat wil
 def raad_het_dier():
