@@ -1,12 +1,12 @@
 """
 Opdracht:
-- Zorg ervoor dat de vragen en de dieren zo kort mogelijk worden opgeslagen, zonder voorzetsels (‘een’ kat) en zonder vraagtekens en hoofdletters
-- Zorg ervoor dat de communicatie met de gebruiker wel netjes met volledige zinnen gebeurt
-- Sla de data op in een bestand en vraag dit bij het opstarten van het programma weer op
-- Gebruik de pickle of json module
-- Maak het mogelijk om vragen achteraf te wijzigen
-- Gebruik kleur en opmaak bij het tonen van vragen en antwoorden
-- Bouw leuke features in zoals ‘laat alle dieren zien’
+☐ Zorg ervoor dat de vragen en de dieren zo kort mogelijk worden opgeslagen, zonder voorzetsels (‘een’ kat) en zonder vraagtekens en hoofdletters
+☐ Zorg ervoor dat de communicatie met de gebruiker wel netjes met volledige zinnen gebeurt
+☐ Sla de data op in een bestand en vraag dit bij het opstarten van het programma weer op
+☑ Gebruik de pickle of json module
+☐ Maak het mogelijk om vragen achteraf te wijzigen
+☐ Gebruik kleur en opmaak bij het tonen van vragen en antwoorden
+☐ Bouw leuke features in zoals ‘laat alle dieren zien’
 """
 
 # Het programma begint met een basisset aan dieren
@@ -49,6 +49,47 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+menu_options = {
+    1: 'Speel "Raad een Dier"',
+    2: 'Laat alle dieren zien',
+    3: 'Wijzig een vraag',
+    4: 'Exit',
+}
+
+def print_menu():
+    for key in menu_options.keys():
+        print (key, '--', menu_options[key] )
+
+def option1():
+     raad_het_dier()
+
+def option2():
+     print('Laat alle dieren zien')
+
+def option3():
+     print('Wijzig een vraag')
+
+if __name__=='__main__':
+    while(True):
+        print_menu()
+        option = ''
+        try:
+            option = int(input('Maak een keuze: '))
+        except:
+            print('Invoer was geen nummer. Kies een optie uit het menu.')
+        #BEpaal wat er moete gebeuren op basis van de keuze
+        if option == 1:
+           option1()
+        elif option == 2:
+            option2()
+        elif option == 3:
+            option3()
+        elif option == 4:
+            print('Bedankt voor het spelen!')
+            exit()
+        else:
+            print('Ongeldige optie. Kies een optie uit het menu.')
 
 # Herhalen zolang de gebruiker dat wil
 def raad_het_dier():
