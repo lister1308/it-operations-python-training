@@ -163,4 +163,3 @@ def is_ja(tekst):
         return False
 
 dieren = lees_dieren_in(bestand)
-raad_het_dier()
