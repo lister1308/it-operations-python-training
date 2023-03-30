@@ -101,7 +101,6 @@ def vraag_om_woord():
     if (sorted(woord) == sorted(mijnwoord)):
       print(f"{bcolors.OKGREEN}{woord}{bcolors.ENDC}",end=' ')
   print("")
-
   """
   input("Druk op ENTER om verder te gaan")
   # wat rijmt er op dit woord?
@@ -111,9 +110,8 @@ def vraag_om_woord():
     rijm_woord = woord[-2:]
     if rijm_mijnwoord == rijm_woord:
       print(f"{bcolors.OKGREEN}{woord}{bcolors.ENDC}",end=' ')
-
-  print("")
   """
+  print("")
   return True
 
 def speel_spelletje():
