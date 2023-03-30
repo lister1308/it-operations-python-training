@@ -14,31 +14,30 @@ Opdracht:
 from os.path import exists
 import json
 
-"""
-dieren = {
-    'vraag': 'Heeft het dier 4 poten?',
-    'nee': {
-        'vraag': 'Kruipt het op bladeren?',
-        'ja':'rups',
-        'nee':'huismus'
-    },
-    'ja': 'olifant'
-}
-"""
-dieren = dict
-
 bestand = 'dieren.json'
-if exists(bestand):
-    with open(bestand,'r') as fp:
-        dieren = json.load (fp)
 
-print(dieren)
+def lees_dieren_in(bestand):
+    if exists(bestand):
+        with open(bestand,'r') as fp:
+            dieren = json.load (fp)
+    else:
+        dieren = {
+        'vraag': 'Heeft het dier 4 poten?',
+            'nee': {
+            'vraag': 'Kruipt het op bladeren?',
+            'ja':'rups',
+            'nee':'huismus'
+            },
+            'ja': 'olifant'
+        }
+        schrijf_dieren_weg(bestand,dieren)
 
-"""
-# save huidige dictionary in directory
-with open('dieren.json', 'w') as fp:
-    json.dump(dieren, fp)
-"""
+    return dieren
+
+def schrijf_dieren_weg(bestand,dieren):
+    # save huidige dictionary in directory
+    with open('dieren.json', 'w') as fp:
+        json.dump(dieren, fp)
 
 class bcolors:
     HEADER = '\033[95m'
@@ -58,6 +57,7 @@ def raad_het_dier():
     while vraag_ja_nee(prompt):
         doorloop_dieren_boomstructuur(dieren)
         prompt = 'Wil je nog een keer spelen?'
+    schrijf_dieren_weg(bestand, dieren)
 
 # Doorloop een tak
 def doorloop_dieren_boomstructuur(tak):
@@ -121,4 +121,5 @@ def is_ja(tekst):
     else:
         return False
 
+dieren = lees_dieren_in(bestand)
 raad_het_dier()

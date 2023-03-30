@@ -1,1 +1,1 @@
-{"vraag": "Heeft het dier 4 poten?", "nee": {"vraag": "Kruipt het op bladeren?", "ja": "rups", "nee": "huismus"}, "ja": "olifant"}
+{"vraag": "Heeft het dier 4 poten?", "nee": {"vraag": "Kruipt het op bladeren?", "ja": "rups", "nee": "huismus"}, "ja": {"vraag": "is het een roofdier", "ja": {"vraag": "is het dier kleiner dan een leeuw", "ja": "poema", "nee": "leeuw"}, "nee": "olifant"}}
