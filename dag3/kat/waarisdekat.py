@@ -11,8 +11,9 @@ kat_gevonden = False
 
 def verstop_kat():
     # maak functie die een random getal terug geeft tussen 1 en max aantal dozen
- print(random.randint(1, aantal_dozen))
- 
+ return(random.randint(1, aantal_dozen))
+
+
 def welke_doos():
     # vraag gebruiker om een doos op te geven tussen 1 en max aantal_dozen
     # doos 0 = stoppen
