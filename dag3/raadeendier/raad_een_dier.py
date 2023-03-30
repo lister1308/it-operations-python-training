@@ -9,12 +9,12 @@ Opdracht:
 - Bouw leuke features in zoals ‘laat alle dieren zien’
 """
 
-
 # Het programma begint met een basisset aan dieren
 # De gebruikte datastructuur is een Python dictionary
-import os
+from os.path import exists
 import json
 
+"""
 dieren = {
     'vraag': 'Heeft het dier 4 poten?',
     'nee': {
@@ -24,10 +24,21 @@ dieren = {
     },
     'ja': 'olifant'
 }
+"""
+dieren = dict
 
+bestand = 'dieren.json'
+if exists(bestand):
+    with open(bestand,'r') as fp:
+        dieren = json.load (fp)
+
+print(dieren)
+
+"""
 # save huidige dictionary in directory
 with open('dieren.json', 'w') as fp:
     json.dump(dieren, fp)
+"""
 
 class bcolors:
     HEADER = '\033[95m'
