@@ -13,7 +13,6 @@ Opdracht:
 # De gebruikte datastructuur is een Python dictionary
 from os.path import exists
 import json
-import keyboard
 
 bestand = 'dieren.json'
 
@@ -139,7 +138,7 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
         print("1. Speel het spel")
         print("2. Toon alle dieren")
         print("3. Wijzig de vragen")
-        keuze = input("Voer uw keuze in (1-3): ")
+        keuze = input("Voer je keuze in (0-3): ")
 
         if keuze.isnumeric() and int(keuze) in range(0, 4):
             if keuze == "1":
@@ -154,7 +153,7 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
                 print("Je hebt optie 3 gekozen.")
             else:
                 # Voer acties uit voor optie 0
-                print("Je hebt optie 0 gekozen.")
+                print("Doei!")
             break
         else:
             print("Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in.")
