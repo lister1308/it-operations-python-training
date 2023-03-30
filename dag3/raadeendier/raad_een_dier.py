@@ -49,7 +49,7 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
-
+"""
 menu_options = {
     1: 'Speel "Raad een Dier"',
     2: 'Laat alle dieren zien',
@@ -77,7 +77,7 @@ if __name__=='__main__':
         try:
             option = int(input('Maak een keuze: '))
         except:
-            print('Invoer was geen nummer. Kies een optie uit het menu.')
+            print('Invoer was geen nummer.')
         #BEpaal wat er moete gebeuren op basis van de keuze
         if option == 1:
            option1()
@@ -90,6 +90,7 @@ if __name__=='__main__':
             exit()
         else:
             print('Ongeldige optie. Kies een optie uit het menu.')
+"""
 
 # Herhalen zolang de gebruiker dat wil
 def raad_het_dier():
