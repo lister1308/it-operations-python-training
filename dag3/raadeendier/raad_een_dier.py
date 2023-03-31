@@ -121,6 +121,23 @@ def is_ja(tekst):
     else:
         return False
 
+def verzamel_alle_dieren(data):
+    # Als er een dier is gevonden voeg hem toe aan de lijst met alle dieren 
+    # Zo niet, roep dan de functie nogmaals aan met de gevonden tak
+
+    if dier_gevonden(data):
+        alle_dieren.append(data)
+    else:
+        if "ja" in data:
+            verzamel_alle_dieren(data["ja"])
+        if "nee" in data:
+            verzamel_alle_dieren(data["nee"])
+
+def toon_alle_dieren():
+    verzamel_alle_dieren(dieren)
+    print('\n'.join(sorted(alle_dieren)))
+    
+
 def menu():
     while True:
         print('''
@@ -147,7 +164,8 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
                 raad_het_dier()
             elif keuze == "2":
                 # Voer acties uit voor optie 2
-                print("Je hebt optie 2 gekozen.")
+                # print("Je hebt optie 2 gekozen.")
+                toon_alle_dieren()
             elif keuze == "3":
                 # Voer acties uit voor optie 3
                 print("Je hebt optie 3 gekozen.")
@@ -158,5 +176,7 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
         else:
             print("Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in.")
 
-dieren = lees_dieren_in(bestand)            
+dieren = lees_dieren_in(bestand)
+alle_dieren = []
+
 menu()
