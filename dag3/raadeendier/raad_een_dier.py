@@ -126,7 +126,7 @@ def verzamel_alle_dieren(data):
     # Zo niet, roep dan de functie nogmaals aan met de gevonden tak
 
     if dier_gevonden(data):
-        alle_dieren.append(data)
+        alle_dieren.append(data.capitalize())
     else:
         if "ja" in data:
             verzamel_alle_dieren(data["ja"])
@@ -135,6 +135,7 @@ def verzamel_alle_dieren(data):
 
 def toon_alle_dieren():
     verzamel_alle_dieren(dieren)
+    print('Dit zijn alle dieren die ik ken:')
     print('\n'.join(sorted(alle_dieren)))
     
 
