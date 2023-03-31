@@ -2,11 +2,12 @@
 Opdracht:
 ☐ Zorg ervoor dat de vragen en de dieren zo kort mogelijk worden opgeslagen, zonder voorzetsels (‘een’ kat) en zonder vraagtekens en hoofdletters
 ☐ Zorg ervoor dat de communicatie met de gebruiker wel netjes met volledige zinnen gebeurt
-☐ Sla de data op in een bestand en vraag dit bij het opstarten van het programma weer op
+☑ Sla de data op in een bestand en vraag dit bij het opstarten van het programma weer op
 ☑ Gebruik de pickle of json module
 ☐ Maak het mogelijk om vragen achteraf te wijzigen
 ☐ Gebruik kleur en opmaak bij het tonen van vragen en antwoorden
-☐ Bouw leuke features in zoals ‘laat alle dieren zien’
+☑ Maak een functie om alle dieren te laten zien
+☐ Bouw leuke features in
 """
 
 # Het programma begint met een basisset aan dieren
