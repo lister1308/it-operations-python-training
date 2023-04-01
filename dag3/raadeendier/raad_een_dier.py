@@ -16,6 +16,9 @@ from os.path import exists
 import json
 
 bestand = 'dieren.json'
+alle_dieren = []
+alle_vragen = []
+
 
 def lees_dieren_in(bestand):
     if exists(bestand):
@@ -122,12 +125,22 @@ def is_ja(tekst):
     else:
         return False
 
+def verzamel_alle_vragen(data):
+    # Als het huidige item een vraag is, voeg deze dan toe aan de lijst van vragen
+    if (isinstance(data, dict)) and 'vraag' in data:
+        alle_vragen.append(data['vraag'].capitalize() + '?')
+    # Recursief doorgaan met zoeken naar vragen in de huidige dictionary
+    for key in data:
+        if isinstance(data[key], (dict, list)):
+            verzamel_alle_vragen(data[key])
+
 def verzamel_alle_dieren(data):
     # Als er een dier is gevonden voeg hem toe aan de lijst met alle dieren 
     # Zo niet, roep dan de functie nogmaals aan met de gevonden tak
 
     if dier_gevonden(data):
         alle_dieren.append(data.capitalize())
+    
     else:
         if "ja" in data:
             verzamel_alle_dieren(data["ja"])
@@ -138,6 +151,12 @@ def toon_alle_dieren():
     verzamel_alle_dieren(dieren)
     print('Dit zijn alle dieren die ik ken:')
     print('\n'.join(sorted(alle_dieren)))
+
+def toon_alle_vragen():
+    verzamel_alle_vragen(dieren)
+    print('Dit zijn alle vragen die ik ken:')
+    print('\n'.join(sorted(alle_vragen)))
+
     
 
 def menu():
@@ -156,7 +175,8 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
         print("")
         print("1. Speel het spel")
         print("2. Toon alle dieren")
-        print("3. Wijzig de vragen")
+        print("3. Toon alle vragen")
+        print("4. Wijzigen een vraag")
         keuze = input("Voer je keuze in (0-3): ")
 
         if keuze.isnumeric() and int(keuze) in range(0, 4):
@@ -170,7 +190,11 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
                 toon_alle_dieren()
             elif keuze == "3":
                 # Voer acties uit voor optie 3
-                print("Je hebt optie 3 gekozen.")
+                #print("Je hebt optie 3 gekozen.")
+                toon_alle_vragen()
+            elif keuze == "4":
+                # Voer acties uit voor optie 3
+                print("Je hebt optie 4 gekozen.")
             else:
                 # Voer acties uit voor optie 0
                 print("Doei!")
@@ -179,6 +203,5 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
             print("Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in.")
 
 dieren = lees_dieren_in(bestand)
-alle_dieren = []
 
 menu()
