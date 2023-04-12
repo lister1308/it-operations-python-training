@@ -117,6 +117,8 @@ def welke_kant(ja):
 
 def vraag_ja_nee(vraag):
     antwoord = input(vraag + ' ')
+    if antwoord == "":
+        menu()
     return is_ja(antwoord)
 
 def is_ja(tekst):
@@ -172,7 +174,7 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
  `--' '--'  `--' `--'  `--' `--' `-------'       `--' `--' `------'   `--'          `-------'   `--'    `------'`--' '--'
               ''' + bcolors.ENDC)
         print("")
-        print(bcolors.OKGREEN + "1. Speel het spel" + bcolors.ENDC)
+        print(bcolors.OKGREEN + "3we1. Speel het spel" + bcolors.ENDC)
         print(bcolors.WARNING + "2. Toon alle dieren" + bcolors.ENDC)
         print(bcolors.WARNING + "3. Toon alle vragen" + bcolors.ENDC)
         print(bcolors.FAIL + "4. Wijzig een vraag" + bcolors.ENDC)
