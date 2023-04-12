@@ -216,6 +216,11 @@ def wijzig_een_vraag():
     menu_vraag_wijzigen(alle_vragen)
     return
 
+def clear_screen():
+    os.system('cls')
+    
+
+
 def menu():
     clear_screen()
     while True:
