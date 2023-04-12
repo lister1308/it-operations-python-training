@@ -20,6 +20,8 @@ bestand = 'dieren.json'
 alle_dieren = []
 alle_vragen = []
 
+def clear_screen():
+    os.system(cls)
 
 def lees_dieren_in(bestand):
     if exists(bestand):
