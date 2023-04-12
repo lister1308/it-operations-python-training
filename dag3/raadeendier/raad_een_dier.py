@@ -12,6 +12,7 @@ Opdracht:
 
 # Het programma begint met een basisset aan dieren
 # De gebruikte datastructuur is een Python dictionary
+import os
 from os.path import exists
 import json
 
@@ -159,8 +160,13 @@ def toon_alle_vragen():
     print('Dit zijn alle vragen die ik ken:')
     print('\n'.join(sorted(alle_vragen)))
 
+def clear_screen():
+    # Clear het screen
+    os.system('cls')
+
     
 def menu():
+    clear_screen()
     while True:
         print(bcolors.OKGREEN + '''
 _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _          _ .-') _              ('-.  _  .-')   
