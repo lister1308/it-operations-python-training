@@ -238,10 +238,9 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
  `--' '--'  `--' `--'  `--' `--' `-------'       `--' `--' `------'   `--'          `-------'   `--'    `------'`--' '--'
               ''' + bcolors.ENDC)
         print("")
-        print(bcolors.OKGREEN + "3we1. Speel het spel" + bcolors.ENDC)
+        print(bcolors.OKGREEN + "1. Speel het spel" + bcolors.ENDC)
         print(bcolors.WARNING + "2. Toon alle dieren" + bcolors.ENDC)
-        print(bcolors.WARNING + "3. Toon alle vragen" + bcolors.ENDC)
-        print(bcolors.OKBLUE + "4. Wijzig een vraag" + bcolors.ENDC)
+        print(bcolors.WARNING + "3. Wijzig een vraag " + bcolors.ENDC)
         print('\n')
         keuze = input(bcolors.BOLD + bcolors.UNDERLINE + "Voer je keuze in (0-3): " + bcolors.ENDC)
 
