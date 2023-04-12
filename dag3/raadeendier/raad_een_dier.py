@@ -127,7 +127,7 @@ def verzamel_alle_dieren(data):
     # Zo niet, roep dan de functie nogmaals aan met de gevonden tak
 
     if dier_gevonden(data):
-        alle_dieren.append(data.capitalize())
+        alle_dieren.append(data['vraag'])
     else:
         if "ja" in data:
             verzamel_alle_dieren(data["ja"])
@@ -138,7 +138,68 @@ def toon_alle_dieren():
     verzamel_alle_dieren(dieren)
     print('Dit zijn alle dieren die ik ken:')
     print('\n'.join(sorted(alle_dieren)))
-    
+
+def zoek_tak(dieren, vraag):
+    if dieren['vraag'] == vraag:
+        return dieren
+    elif 'ja' in dieren:
+        return dieren
+    elif 'nee' in dieren:
+        tak = zoek_tak(dieren['nee'], vraag)
+        if tak is not None:
+            return tak
+    elif 'nee' in dieren:
+        tak = zoek_tak(dieren['nee'], vraag)
+        if tak is not None:
+            return tak
+    return None
+
+def verzamel_alle_vragen(data):
+    if not dier_gevonden(data):
+        alle_vragen.append(data["vraag"])
+        verzamel_alle_vragen(data["nee"])
+    else:
+        return
+
+def menu_alle_vragen(vragen):
+    teller = 1
+    for vraag in vragen[:-1]:
+        print(f"{teller}. {vraag}")
+        teller+=1
+
+def wijzig_vraag(oude_vraag,nieuwe_vraag):
+    print(f"De huidige vraag {bcolors.WARNING}{oude_vraag}{bcolors.ENDC} wordt gewijzigd in {bcolors.OKGREEN}{nieuwe_vraag}{bcolors.ENDC}")
+    tak = zoek_tak(dieren, oude_vraag)
+    if tak is not None:
+        print ("gevonden!!!!!")
+        tak['vraag'] = nieuwe_vraag
+        schrijf_dieren_weg(bestand,dieren)
+    else:
+        print(f"De vraag '{vraag}' werd niet gevonden.")
+    return
+
+def menu_vraag_wijzigen(vragen):
+    welke = input("Welke vraag wil je wijzigen? ")
+    if not isinstance(welke,int) or welke < 1 or welke > len(vragen[:-1]):
+        print(f"Je wilt vraag {bcolors.OKCYAN}{welke}{bcolors.ENDC} wijzigen")
+        print(f"Hier stond: {alle_vragen[int(welke)-1]}")
+        nieuwe_vraag = input("Wijzig de vraag: ")
+        vraagstellen = "Dit wordt de nieuwe vraag: " + nieuwe_vraag + " (j/n)? "
+        if vraag_ja_nee(vraagstellen):
+            print("Vraag wordt gewijzigd")
+            wijzig_vraag(alle_vragen[int(welke)-1],nieuwe_vraag)
+        else:
+            print("Vraag wordt niet gewijzigd")
+    else:
+        print("Verkeerde input")
+        return
+
+def wijzig_een_vraag():
+    print(f"{bcolors.OKBLUE}Dit zijn alle vragen die er in zitten{bcolors.ENDC}")
+    verzamel_alle_vragen(dieren)
+    menu_alle_vragen(alle_vragen)
+    menu_vraag_wijzigen(alle_vragen)
+    return
 
 def menu():
     while True:
@@ -171,6 +232,7 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
             elif keuze == "3":
                 # Voer acties uit voor optie 3
                 print("Je hebt optie 3 gekozen.")
+                wijzig_een_vraag()
             else:
                 # Voer acties uit voor optie 0
                 print("Doei!")
@@ -180,5 +242,6 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
 
 dieren = lees_dieren_in(bestand)
 alle_dieren = []
+alle_vragen = []
 
 menu()
