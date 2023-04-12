@@ -26,9 +26,9 @@ def lees_dieren_in(bestand):
             dieren = json.load (fp)
     else:
         dieren = {
-        'vraag': 'Heeft het dier 4 poten?',
+        'vraag': bcolors.OKGREEN + 'Heeft het dier 4 poten?' + bcolors.ENDC,
             'nee': {
-            'vraag': 'Kruipt het op bladeren?',
+            'vraag': bcolors.OKGREEN + 'Kruipt het op bladeren?' + bcolors.ENDC,
             'ja':'rups',
             'nee':'huismus'
             },
@@ -56,8 +56,8 @@ class bcolors:
 
 # Herhalen zolang de gebruiker dat wil
 def raad_het_dier():
-    print('Neem een dier in gedachten...')
-    prompt = 'Ben je er klaar voor?'
+    print(bcolors.WARNING + 'Neem een dier in gedachten...' + bcolors.ENDC)
+    prompt = bcolors.OKGREEN + 'Ben je er klaar voor?' + bcolors.ENDC
     while vraag_ja_nee(prompt):
         doorloop_dieren_boomstructuur(dieren)
         prompt = 'Wil je nog een keer spelen?'
@@ -160,7 +160,7 @@ def toon_alle_vragen():
     
 def menu():
     while True:
-        print(bcolors.HEADER + '''
+        print(bcolors.OKGREEN + '''
 _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _          _ .-') _              ('-.  _  .-')   
 ( \( -O )   ( OO ).-.  ( OO ).-.( (  OO) )       ( OO )  / _(  OO) (  OO) )        ( (  OO) )           _(  OO)( \( -O )  
  ,------.   / . --. /  / . --. / \     .'_       ,--. ,--.(,------./     '._        \     .'_   ,-.-') (,------.,------.  
@@ -172,11 +172,12 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
  `--' '--'  `--' `--'  `--' `--' `-------'       `--' `--' `------'   `--'          `-------'   `--'    `------'`--' '--'
               ''' + bcolors.ENDC)
         print("")
-        print("1. Speel het spel")
-        print("2. Toon alle dieren")
-        print("3. Toon alle vragen")
-        print("4. Wijzigen een vraag")
-        keuze = input("Voer je keuze in (0-3): ")
+        print(bcolors.OKGREEN + "1. Speel het spel" + bcolors.ENDC)
+        print(bcolors.WARNING + "2. Toon alle dieren" + bcolors.ENDC)
+        print(bcolors.WARNING + "3. Toon alle vragen" + bcolors.ENDC)
+        print(bcolors.FAIL + "4. Wijzig een vraag" + bcolors.ENDC)
+        print('\n')
+        keuze = input(bcolors.BOLD + bcolors.UNDERLINE + "Voer je keuze in (0-3): " + bcolors.ENDC)
 
         if keuze.isnumeric() and int(keuze) in range(0, 4):
             if keuze == "1":
@@ -199,7 +200,7 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
                 print("Doei!")
             break
         else:
-            print("Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in.")
+            print(bcolors.FAIL + "Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in." + bcolors.ENDC)
 
 dieren = lees_dieren_in(bestand)
 
