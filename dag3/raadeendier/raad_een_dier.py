@@ -117,6 +117,8 @@ def welke_kant(ja):
 
 def vraag_ja_nee(vraag):
     antwoord = input(vraag + ' ')
+    if antwoord == "":
+        menu()
     return is_ja(antwoord)
 
 def is_ja(tekst):
