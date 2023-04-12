@@ -12,10 +12,14 @@ Opdracht:
 
 # Het programma begint met een basisset aan dieren
 # De gebruikte datastructuur is een Python dictionary
+import os
 from os.path import exists
 import json
 
 bestand = 'dieren.json'
+alle_dieren = []
+alle_vragen = []
+
 
 def lees_dieren_in(bestand):
     if exists(bestand):
@@ -53,11 +57,11 @@ class bcolors:
 
 # Herhalen zolang de gebruiker dat wil
 def raad_het_dier():
-    print('Neem een dier in gedachten...')
-    prompt = 'Ben je er klaar voor?'
+    print(bcolors.WARNING + 'Neem een dier in gedachten...' + bcolors.ENDC)
+    prompt = bcolors.OKGREEN + 'Ben je er klaar voor?' + bcolors.ENDC
     while vraag_ja_nee(prompt):
         doorloop_dieren_boomstructuur(dieren)
-        prompt = 'Wil je nog een keer spelen?'
+        prompt = bcolors.OKCYAN + 'Wil je nog een keer spelen?' + bcolors.ENDC
     schrijf_dieren_weg(bestand, dieren)
 
 # Doorloop een tak
@@ -81,16 +85,16 @@ def dier_gevonden(tak):
     return is_blad
 
 def eindig_spel(blad, stam, richting):
-    if vraag_ja_nee('Is je dier misschien een ' + blad + '?'):
-        print('Yes! Ik het het geraden! Ik ben zo goed!')
+    if vraag_ja_nee(bcolors.OKCYAN + 'Is je dier misschien een ' + bcolors.BOLD + bcolors.HEADER + blad + '?' + bcolors.ENDC):
+        print(bcolors.BOLD + bcolors.OKGREEN + 'Yes! Ik heb het geraden! Ik ben zo goed!' + bcolors.ENDC)
     else:
         bewaar_nieuw_dier(stam, welke_kant(richting), blad)
 
 def bewaar_nieuw_dier(hogere_tak, kant, oud_dier):
-    nieuw_dier = input('Oh, wat jammer dat ik het niet heb geraden! Welk dier zat je aan te denken? ')
+    nieuw_dier = input(bcolors.OKCYAN + 'Oh, wat jammer dat ik het niet heb geraden! Welk dier zat je aan te denken? ' + bcolors.ENDC)
     if nieuw_dier.startswith('een '):
         nieuw_dier = nieuw_dier[4:len(nieuw_dier)]
-    nieuwe_vraag = input('En welke vraag had ik moeten stellen om onderscheid te maken tussen een ' + oud_dier.lower() + ' en een ' + nieuw_dier.lower() + '? ')
+    nieuwe_vraag = input(bcolors.OKCYAN + 'En welke vraag had ik moeten stellen om onderscheid te maken tussen een ' + bcolors.FAIL + oud_dier.lower() + bcolors.OKCYAN + ' en een ' + bcolors.OKGREEN + nieuw_dier.lower() + '? ' + bcolors.ENDC)
 
     hogere_tak[kant] = {
         'vraag': nieuwe_vraag.lower().rstrip('? ').lstrip(' ').replace('  ', ' '),
@@ -114,6 +118,8 @@ def welke_kant(ja):
 
 def vraag_ja_nee(vraag):
     antwoord = input(vraag + ' ')
+    if antwoord == "":
+        menu()
     return is_ja(antwoord)
 
 def is_ja(tekst):
@@ -121,6 +127,15 @@ def is_ja(tekst):
         return True
     else:
         return False
+
+def verzamel_alle_vragen(data):
+    # Als het huidige item een vraag is, voeg deze dan toe aan de lijst van vragen
+    if (isinstance(data, dict)) and 'vraag' in data:
+        alle_vragen.append(data['vraag'].capitalize() + '?')
+    # Recursief doorgaan met zoeken naar vragen in de huidige dictionary
+    for key in data:
+        if isinstance(data[key], (dict, list)):
+            verzamel_alle_vragen(data[key])
 
 def verzamel_alle_dieren(data):
     # Als er een dier is gevonden voeg hem toe aan de lijst met alle dieren 
@@ -202,8 +217,9 @@ def wijzig_een_vraag():
     return
 
 def menu():
+    clear_screen()
     while True:
-        print('''
+        print(bcolors.OKGREEN + '''
 _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _          _ .-') _              ('-.  _  .-')   
 ( \( -O )   ( OO ).-.  ( OO ).-.( (  OO) )       ( OO )  / _(  OO) (  OO) )        ( (  OO) )           _(  OO)( \( -O )  
  ,------.   / . --. /  / . --. / \     .'_       ,--. ,--.(,------./     '._        \     .'_   ,-.-') (,------.,------.  
@@ -213,12 +229,14 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
  |  .  '.'  |  .-.  |  |  .-.  | |  |   / :      |  .-.  | |  .--'    |  |          |  |   / : ,|  |_.' |  .--' |  .  '.' 
  |  |\  \   |  | |  |  |  | |  | |  '--'  /      |  | |  | |  `---.   |  |          |  '--'  /(_|  |    |  `---.|  |\  \  
  `--' '--'  `--' `--'  `--' `--' `-------'       `--' `--' `------'   `--'          `-------'   `--'    `------'`--' '--'
-              ''')
+              ''' + bcolors.ENDC)
         print("")
-        print("1. Speel het spel")
-        print("2. Toon alle dieren")
-        print("3. Wijzig de vragen")
-        keuze = input("Voer je keuze in (0-3): ")
+        print(bcolors.OKGREEN + "3we1. Speel het spel" + bcolors.ENDC)
+        print(bcolors.WARNING + "2. Toon alle dieren" + bcolors.ENDC)
+        print(bcolors.WARNING + "3. Toon alle vragen" + bcolors.ENDC)
+        print(bcolors.OKBLUE + "4. Wijzig een vraag" + bcolors.ENDC)
+        print('\n')
+        keuze = input(bcolors.BOLD + bcolors.UNDERLINE + "Voer je keuze in (0-3): " + bcolors.ENDC)
 
         if keuze.isnumeric() and int(keuze) in range(0, 4):
             if keuze == "1":
@@ -238,7 +256,7 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
                 print("Doei!")
             break
         else:
-            print("Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in.")
+            print(bcolors.FAIL + "Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in." + bcolors.ENDC)
 
 dieren = lees_dieren_in(bestand)
 alle_dieren = []
