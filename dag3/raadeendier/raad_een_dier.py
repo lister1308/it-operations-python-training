@@ -12,6 +12,7 @@ Opdracht:
 
 # Het programma begint met een basisset aan dieren
 # De gebruikte datastructuur is een Python dictionary
+import os
 from os.path import exists
 import json
 
@@ -26,9 +27,9 @@ def lees_dieren_in(bestand):
             dieren = json.load (fp)
     else:
         dieren = {
-        'vraag': bcolors.OKGREEN + 'Heeft het dier 4 poten?' + bcolors.ENDC,
+        'vraag': 'Heeft het dier 4 poten?',
             'nee': {
-            'vraag': bcolors.OKGREEN + 'Kruipt het op bladeren?' + bcolors.ENDC,
+            'vraag': 'Kruipt het op bladeren?',
             'ja':'rups',
             'nee':'huismus'
             },
@@ -60,7 +61,7 @@ def raad_het_dier():
     prompt = bcolors.OKGREEN + 'Ben je er klaar voor?' + bcolors.ENDC
     while vraag_ja_nee(prompt):
         doorloop_dieren_boomstructuur(dieren)
-        prompt = 'Wil je nog een keer spelen?'
+        prompt = bcolors.OKCYAN + 'Wil je nog een keer spelen?' + bcolors.ENDC
     schrijf_dieren_weg(bestand, dieren)
 
 # Doorloop een tak
@@ -84,16 +85,16 @@ def dier_gevonden(tak):
     return is_blad
 
 def eindig_spel(blad, stam, richting):
-    if vraag_ja_nee('Is je dier misschien een ' + blad + '?'):
-        print('Yes! Ik het het geraden! Ik ben zo goed!')
+    if vraag_ja_nee(bcolors.OKCYAN + 'Is je dier misschien een ' + bcolors.BOLD + bcolors.HEADER + blad + '?' + bcolors.ENDC):
+        print(bcolors.BOLD + bcolors.OKGREEN + 'Yes! Ik heb het geraden! Ik ben zo goed!' + bcolors.ENDC)
     else:
         bewaar_nieuw_dier(stam, welke_kant(richting), blad)
 
 def bewaar_nieuw_dier(hogere_tak, kant, oud_dier):
-    nieuw_dier = input('Oh, wat jammer dat ik het niet heb geraden! Welk dier zat je aan te denken? ')
+    nieuw_dier = input(bcolors.OKCYAN + 'Oh, wat jammer dat ik het niet heb geraden! Welk dier zat je aan te denken? ' + bcolors.ENDC)
     if nieuw_dier.startswith('een '):
         nieuw_dier = nieuw_dier[4:len(nieuw_dier)]
-    nieuwe_vraag = input('En welke vraag had ik moeten stellen om onderscheid te maken tussen een ' + oud_dier.lower() + ' en een ' + nieuw_dier.lower() + '? ')
+    nieuwe_vraag = input(bcolors.OKCYAN + 'En welke vraag had ik moeten stellen om onderscheid te maken tussen een ' + bcolors.FAIL + oud_dier.lower() + bcolors.OKCYAN + ' en een ' + bcolors.OKGREEN + nieuw_dier.lower() + '? ' + bcolors.ENDC)
 
     hogere_tak[kant] = {
         'vraag': nieuwe_vraag.lower().rstrip('? ').lstrip(' ').replace('  ', ' '),
@@ -151,16 +152,21 @@ def verzamel_alle_dieren(data):
 
 def toon_alle_dieren():
     verzamel_alle_dieren(dieren)
-    print('Dit zijn alle dieren die ik ken:')
-    print('\n'.join(sorted(alle_dieren)))
+    print(bcolors.HEADER + 'Dit zijn alle dieren die ik ken:' + bcolors.ENDC)
+    print(bcolors.WARNING + '\n'.join(sorted(alle_dieren)) + bcolors.ENDC)
 
 def toon_alle_vragen():
     verzamel_alle_vragen(dieren)
-    print('Dit zijn alle vragen die ik ken:')
-    print('\n'.join(sorted(alle_vragen)))
+    print(bcolors.HEADER + 'Dit zijn alle vragen die ik ken:' + bcolors.ENDC)
+    print(bcolors.WARNING + '\n'.join(sorted(alle_vragen)) + bcolors.ENDC)
+
+def clear_screen():
+    # Clear het screen
+    os.system('cls')
 
     
 def menu():
+    clear_screen()
     while True:
         print(bcolors.OKGREEN + '''
 _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _          _ .-') _              ('-.  _  .-')   
@@ -177,7 +183,7 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
         print(bcolors.OKGREEN + "3we1. Speel het spel" + bcolors.ENDC)
         print(bcolors.WARNING + "2. Toon alle dieren" + bcolors.ENDC)
         print(bcolors.WARNING + "3. Toon alle vragen" + bcolors.ENDC)
-        print(bcolors.FAIL + "4. Wijzig een vraag" + bcolors.ENDC)
+        print(bcolors.OKBLUE + "4. Wijzig een vraag" + bcolors.ENDC)
         print('\n')
         keuze = input(bcolors.BOLD + bcolors.UNDERLINE + "Voer je keuze in (0-3): " + bcolors.ENDC)
 
