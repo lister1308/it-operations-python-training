@@ -265,7 +265,4 @@ _  .-')     ('-.       ('-.     _ .-') _         ('-. .-.   ('-.   .-') _       
             print(bcolors.FAIL + "Ongeldige keuze. Voer a.u.b. een getal tussen 1 en 3 in." + bcolors.ENDC)
 
 dieren = lees_dieren_in(bestand)
-alle_dieren = []
-alle_vragen = []
-
 menu()
