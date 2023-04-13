@@ -108,10 +108,10 @@ def volzin(thema=None):
     if thema is None:
         thema = random.choice(list(zelfstandige_naamwoorden.keys()))
     if random.choice([True, False]):
-        return onderwerp(thema) + " " + werkwoord(thema) + "."
+        zin = onderwerp(thema) + " " + werkwoord(thema) + "."
     else:
-        return onderwerp(thema) + " " + werkwoord(thema) + " " + koppelwoord() + " " + lijdend_voorwerp(thema) + "."
-
+        zin = onderwerp(thema) + " " + werkwoord(thema) + " " + koppelwoord() + " " + lijdend_voorwerp(thema) + "."
+    return zin.capitalize()
 
 # huiswerk tijdelijke bestanden
 # vermeld onder je module welke functies er in zitten
