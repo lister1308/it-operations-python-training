@@ -7,6 +7,14 @@ def lidwoord():
     lidwoorden = ["de", "het", "een"]
     return random.choice(lidwoorden)
 
+# alternatief
+#def lidwoord(zelfstandig_naamwoord):
+#    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
+#        return 'het'
+#    else:
+#        return 'de'
+
+
 # huiswerk tijdelijke bestanden
 # vermeld onder je module welke functies er in zitten
 #
