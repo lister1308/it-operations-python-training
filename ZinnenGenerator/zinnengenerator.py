@@ -29,15 +29,15 @@ lijdende_voorwerpen = {
 }
 
 bijvoeglijke_naamwoorden = {
-    "voorwerpen": ["roze", "glanzend", "oud", "duurzaam"],
-    "meubels": ["comfortabel", "modern", "klassiek", "verstelbaar"],
-    "mensen": ["sympathiek", "slim", "grappig", "aardig"],
-    "dieren": ["schattig", "speels", "lief", "trouw"],
-    "voertuigen": ["snel", "efficiënt", "ruim", "luxueus"],
-    "plaatsen": ["druk", "schoon", "gezellig", "veilig"],
-    "gebouwen": ["romantisch", "chique", "historisch", "uniek"],
-    "bomen": ["groot", "oud", "mooi", "geurend"],
-    "planten": ["groen", "bont", "gezond", "kleurrijk"]
+    "voorwerpen": ["roze", "glanzende", "oude", "duurzame"],
+    "meubels": ["comfortabele", "moderne", "klassieke", "verstelbare"],
+    "mensen": ["sympathieke", "slimme", "grappige", "aardige"],
+    "dieren": ["schattige", "speelse", "lieve", "trouwe"],
+    "voertuigen": ["snelle", "efficiënte", "ruime", "luxueuze"],
+    "plaatsen": ["drukke", "schone", "gezellige", "veilige"],
+    "gebouwen": ["romantische", "chique", "historische", "unieke"],
+    "bomen": ["grote", "oude", "mooie", "geurende"],
+    "planten": ["groene", "bonte", "gezonde", "kleurrijke"]
 }
 
 werkwoorden = {
@@ -52,21 +52,66 @@ werkwoorden = {
     "planten": ["water geven", "verpotten", "snoeien", "mesten"]
 }
 
-def lidwoord():
-    lidwoorden = ["de", "het", "een"]
-    return random.choice(lidwoorden)
+koppelwoorden = ["op", "in", "voor", "onder"]
+
+#<lidwoord> ::= “de” | “het” | “een”
+#def lidwoord():
+#    lidwoorden = ["de", "het", "een"]
+#    return random.choice(lidwoorden)
 
 # alternatief
-#def lidwoord(zelfstandig_naamwoord):
-#    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
-#        return random.choice['het','een']
-#    else:
-#        return random.choice['de', 'een']
+def lidwoord(zelfstandig_naamwoord):
+    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
+        return 'het'
+    else:
+        return 'de'
+        
 
+#<bijvoegelijk_naamwoord> ::= “blauwe” | “grote” | “volle” | …
+def bijvoeglijk_naamwoord(thema=None):
+    if thema is None:
+        thema = random.choice(list(bijvoeglijke_naamwoorden.keys()))
+    return random.choice(bijvoeglijke_naamwoorden[thema])
+
+#<koppelwoord> ::= “op” | “in” | “voor” | “onder” | …
+def koppelwoord(): 
+    return random.choice(koppelwoorden)
+
+#<lijdend_voorwerp> ::= <onderwerp>
+def lijdend_voorwerp(thema=None):
+    if thema is None:
+        thema = random.choice(list(lijdende_voorwerpen.keys()))
+    return random.choice(lijdende_voorwerpen[thema])
+
+#<werkwoord> ::= “staat” | “zit” | “ligt” | …
+def werkwoord(thema=None):
+    if thema is None:
+        thema = random.choice(list(werkwoorden.keys()))
+    return random.choice(werkwoorden[thema])
+
+#<zelfstandig_naamwoord> ::= “glas” | “pen” | “netwerkkabel” | …
 def zelfstandig_naamwoord(thema=None):
     if thema is None:
         thema = random.choice(list(zelfstandige_naamwoorden.keys()))
     return random.choice(zelfstandige_naamwoorden[thema])
+
+#<onderwerp> ::= <lidwoord> <zelfstandig_naamwoord> | <lidwoord> <bijvoegelijk_naamwoord> <zelfstandig_naamwoord>
+def onderwerp(thema=None):
+    zsn = zelfstandig_naamwoord(thema)
+    if random.choice([True, False]):
+        return lidwoord(zsn) + " " + zsn
+    else:
+        return lidwoord(zsn) + " " + bijvoeglijk_naamwoord(thema) + " " + zsn
+
+#<zin> ::= <onderwerp> <werkwoord> “.” | <onderwerp> <werkwoord> <koppelwoord> <lijdend_voorwerp> “.”
+def volzin(thema=None):
+    if thema is None:
+        thema = random.choice(list(zelfstandige_naamwoorden.keys()))
+    if random.choice([True, False]):
+        return onderwerp(thema) + " " + werkwoord(thema) + "."
+    else:
+        return onderwerp(thema) + " " + werkwoord(thema) + " " + koppelwoord() + " " + lijdend_voorwerp(thema) + "."
+
 
 # huiswerk tijdelijke bestanden
 # vermeld onder je module welke functies er in zitten
@@ -94,4 +139,4 @@ def zelfstandig_naamwoord(thema=None):
 - functie met als aanroep, dictionary, geeft terug random entry
 - bij zin, eerst zelfstandig naamwoord, dan lidwoord
 """
-print(lidwoord())
+print(volzin())
