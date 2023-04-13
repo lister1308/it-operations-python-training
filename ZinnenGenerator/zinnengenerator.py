@@ -10,9 +10,9 @@ def lidwoord():
 # alternatief
 #def lidwoord(zelfstandig_naamwoord):
 #    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
-#        return 'het'
+#        return random.choice['het','een']
 #    else:
-#        return 'de'
+#        return random.choice['de', 'een']
 
 def zelfstandig_naamwoord(thema=None):
     if thema is None:
@@ -43,5 +43,6 @@ def zelfstandig_naamwoord(thema=None):
 """
 - dictionary van: lidwoord, zelfstandig_naamwoord, lijdend_voorwerp, bijvoeglijk_naamwoord, werkwoord, koppelwoord
 - functie met als aanroep, dictionary, geeft terug random entry
+- bij zin, eerst zelfstandig naamwoord, dan lidwoord
 """
 print(lidwoord())
