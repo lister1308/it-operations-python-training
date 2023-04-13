@@ -1,3 +1,5 @@
+https://www.cursusburo.nl/course/traineeship-operations/lessons/teamopdracht-onze-eigen-zinnengenerator/
+
 Teamopdracht “Onze eigen zinnengenerator”
 In deze opdracht maken we een zinnengenerator die alinea’s met betekenisvolle zinnen kan genereren. Hiertoe maken de deelnemers ieder een functie die een deel van een zin kan genereren en maakt het team samen functies om zinnen en alinea’s samen te stellen.
 
