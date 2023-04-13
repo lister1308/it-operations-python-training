@@ -1,7 +1,7 @@
 # zinnengenerator
 import random
 # bestand met daarin de dictionaries
-#import zinnengenerator_dict.py
+import zinnengenerator_dict.py
 
 def lidwoord():
     lidwoorden = ["de", "het", "een"]
@@ -10,10 +10,14 @@ def lidwoord():
 # alternatief
 #def lidwoord(zelfstandig_naamwoord):
 #    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
-#        return 'het'
+#        return random.choice['het','een']
 #    else:
-#        return 'de'
+#        return random.choice['de', 'een']
 
+def zelfstandig_naamwoord(thema=None):
+    if thema is None:
+        thema = random.choice(list(zelfstandige_naamwoorden.keys()))
+    return random.choice(zelfstandige_naamwoorden[thema])
 
 # huiswerk tijdelijke bestanden
 # vermeld onder je module welke functies er in zitten
@@ -39,5 +43,6 @@ def lidwoord():
 """
 - dictionary van: lidwoord, zelfstandig_naamwoord, lijdend_voorwerp, bijvoeglijk_naamwoord, werkwoord, koppelwoord
 - functie met als aanroep, dictionary, geeft terug random entry
+- bij zin, eerst zelfstandig naamwoord, dan lidwoord
 """
 print(lidwoord())
