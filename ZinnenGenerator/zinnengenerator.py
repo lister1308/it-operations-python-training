@@ -76,20 +76,24 @@ koppelwoorden = ["op", "in", "voor", "onder"]
 # Functie voor het bepalen van het lidwoord. Afgestapt van bepaling dmv logica in de functie aangezien 
 # er te veel uitzonderingen zijn en dit zorgt voor niet lekker lopende zinnen.
 def lidwoord(zelfstandig_naamwoord):
-    url = f"https://www.welklidwoord.nl/{zelfstandig_naamwoord}"
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "html.parser")
-    result = soup.find(class_="nieuwH2").find('span')
-    print(result)
-    if result:
-        result_text = result.text.strip().lower()
-        if "het" in result_text:
-            return "het"
-        elif "de" in result_text:
-            return "de"
-        elif "een" in result_text:
-            return "een"
-    return "onbekend"
+    print(zelfstandig_naamwoord)
+    try: 
+        url = f"https://www.welklidwoord.nl/{zelfstandig_naamwoord}"
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, "html.parser")
+        result = soup.find(class_="nieuwH2").find('span')
+        print(result)
+        if result:
+            result_text = result.text.strip().lower()
+            if "het" in result_text:
+                return "het"
+            elif "de" in result_text:
+                return "de"
+            else:
+                return "een"
+    except:
+        return "een"
+
 
 # alternatief
 #def lidwoord(zelfstandig_naamwoord):
@@ -111,9 +115,10 @@ def koppelwoord():
 
 #<lijdend_voorwerp> ::= <onderwerp>
 def lijdend_voorwerp(thema=None):
-    if thema is None:
-        thema = random.choice(list(lijdende_voorwerpen.keys()))
-    return random.choice(lijdende_voorwerpen[thema])
+    #if thema is None:
+    #    thema = random.choice(list(lijdende_voorwerpen.keys()))
+    #return random.choice(lijdende_voorwerpen[thema])
+    return onderwerp(thema)
 
 #<werkwoord> ::= “staat” | “zit” | “ligt” | …
 def werkwoord(thema=None):
