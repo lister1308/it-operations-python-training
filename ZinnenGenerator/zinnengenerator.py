@@ -76,21 +76,22 @@ koppelwoorden = ["op", "in", "voor", "onder"]
 # Functie voor het bepalen van het lidwoord. Afgestapt van bepaling dmv logica in de functie aangezien 
 # er te veel uitzonderingen zijn en dit zorgt voor niet lekker lopende zinnen.
 def lidwoord(zelfstandig_naamwoord):
-    print(zelfstandig_naamwoord)
     try: 
-        url = f"https://www.welklidwoord.nl/{zelfstandig_naamwoord}"
+        url = f"https://anw.ivdnt.org/article/{zelfstandig_naamwoord}"
         response = requests.get(url)
-        soup = BeautifulSoup(response.text, "html.parser")
-        result = soup.find(class_="nieuwH2").find('span')
-        print(result)
-        if result:
-            result_text = result.text.strip().lower()
-            if "het" in result_text:
-                return "het"
-            elif "de" in result_text:
-                return "de"
-            else:
-                return "een"
+        # De HTML van de pagina parsen
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Het element vinden met de tag 'td' dat volgt op een element met de tekst 'Lidwoord'
+        td_element = soup.find('th', string='Lidwoord').find_next('td')
+
+        # Het lidwoord ophalen uit de tekst tussen de tags
+        result = td_element.text.strip().lower()
+                
+        if result in ["het", "de"]:
+            return result
+        else:
+            return "een"
     except:
         return "een"
 
