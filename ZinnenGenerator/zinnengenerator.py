@@ -1,5 +1,11 @@
 # zinnengenerator
 import random
+# python -m pip install requests
+import requests
+# python -m pip install bs4
+from bs4 import BeautifulSoup
+
+
 # bestand met daarin de dictionaries
 # import zinnengenerator_dict.py
 
@@ -40,31 +46,57 @@ bijvoeglijke_naamwoorden = {
     "planten": ["groene", "bonte", "gezonde", "kleurrijke"]
 }
 
+'''
+Kun je een python dictionary maken die voor de onderstaande thema's 4 werkwoorden bevat in de enkelvoudige persoonsvorm in de vorm Hij/Zij/Het.
+
+- voorwerpen
+- meubels
+- mensen
+- dieren
+- voertuigen
+- plaatsen
+- gebouwen
+- bomen
+- planten
+'''
 werkwoorden = {
-    "voorwerpen": ["vasthouden", "opladen", "gebruiken", "verliezen"],
-    "meubels": ["schuiven", "verstellen", "monteren", "schoonmaken"],
-    "mensen": ["ontmoeten", "helpen", "bezoeken", "adviseren"],
-    "dieren": ["voeden", "aaien", "trainen", "uitlaten"],
-    "voertuigen": ["besturen", "onderhouden", "wassen", "parkeren"],
-    "plaatsen": ["bezoeken", "wandelen", "shoppen", "picknicken"],
-    "gebouwen": ["bezichtigen", "reserveren", "betreden", "verlaten"],
-    "bomen": ["planten", "snoeien", "verzorgen", "kappen"],
-    "planten": ["water geven", "verpotten", "snoeien", "mesten"]
+    "voorwerpen": ["pakt", "zet", "duwt", "tilt"],
+    "meubels": ["stoft", "verplaatst", "monteert", "polijst"],
+    "mensen": ["praat", "werkt", "loopt", "luistert"],
+    "dieren": ["voedt", "aait", "traint", "observeert"],
+    "voertuigen": ["rijdt", "parkeert", "onderhoudt", "tankt"],
+    "plaatsen": ["bezoekt", "ontdekt", "verlaat", "fotografeert"],
+    "gebouwen": ["betreedt", "verlaat", "renoveert", "bewondert"],
+    "bomen": ["plant", "snoeit", "observeert", "klimt"],
+    "planten": ["plant", "verpot", "snoeit", "observeert"]
 }
 
 koppelwoorden = ["op", "in", "voor", "onder"]
 
-#<lidwoord> ::= “de” | “het” | “een”
-#def lidwoord():
-#    lidwoorden = ["de", "het", "een"]
-#    return random.choice(lidwoorden)
+# Functie voor het bepalen van het lidwoord. Afgestapt van bepaling dmv logica in de functie aangezien 
+# er te veel uitzonderingen zijn en dit zorgt voor niet lekker lopende zinnen.
+def lidwoord(zelfstandig_naamwoord):
+    url = f"https://www.welklidwoord.nl/{zelfstandig_naamwoord}"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    result = soup.find(class_="nieuwH2").find('span')
+    print(result)
+    if result:
+        result_text = result.text.strip().lower()
+        if "het" in result_text:
+            return "het"
+        elif "de" in result_text:
+            return "de"
+        elif "een" in result_text:
+            return "een"
+    return "onbekend"
 
 # alternatief
-def lidwoord(zelfstandig_naamwoord):
-    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
-        return 'het'
-    else:
-        return 'de'
+#def lidwoord(zelfstandig_naamwoord):
+#    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
+#        return 'het'
+#    else:
+#        return 'de'
         
 
 #<bijvoegelijk_naamwoord> ::= “blauwe” | “grote” | “volle” | …
