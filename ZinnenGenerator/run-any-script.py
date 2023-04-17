@@ -5,11 +5,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index3.html")
+    return render_template("index.html")
 
 @app.route("/process", methods=["POST"])
 def process():
-    output = subprocess.check_output(["/opt/homebrew/bin/python3.9", "/Users/lucas/stack/Python/itoperations/ZinnenGenerator/zinnengenerator.py"])
+    # macos
+    #output = subprocess.check_output(["/opt/homebrew/bin/python3.9", "/Users/lucas/stack/Python/itoperations/ZinnenGenerator/zinnengenerator.py"])
+    # windows
+    output = subprocess.check_output(["python", "c:\temp\zinnengenerator.py"])
     return output.decode()
 
 app.run(host='0.0.0.0', port=8080)
