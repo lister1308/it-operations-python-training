@@ -116,10 +116,10 @@ def koppelwoord():
 
 #<lijdend_voorwerp> ::= <onderwerp>
 def lijdend_voorwerp(thema=None):
-    #if thema is None:
-    #    thema = random.choice(list(lijdende_voorwerpen.keys()))
-    #return random.choice(lijdende_voorwerpen[thema])
-    return onderwerp(thema)
+    if thema is None:
+        thema = random.choice(list(lijdende_voorwerpen.keys()))
+    return random.choice(lijdende_voorwerpen[thema])
+    #return onderwerp(thema)
 
 #<werkwoord> ::= “staat” | “zit” | “ligt” | …
 def werkwoord(thema=None):
