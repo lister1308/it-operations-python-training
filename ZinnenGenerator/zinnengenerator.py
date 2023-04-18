@@ -11,7 +11,8 @@ import argparse
 parser = argparse.ArgumentParser(description="Omschrijving: genereer een random zin of zelfs complete alinea")
 parser.add_argument('-s', '--samenhang', default=1, help='Is er samenhang tussen de zinnen, default 1 = ja, of 0 = nee')
 parser.add_argument('-p', '--print', default='alinea', help='Print een zin of alinea')
-parser.add_argument('-a', '--aantal', default='5', help='Print aantal zinnen of zinnen in een alinea')
+parser.add_argument('-a', '--aantal', default='5', type=int, help='Print aantal zinnen of zinnen in een alinea')
+parser.add_argument('--sound', action='store_true', help='geef deze mee als je zin wilt laten uitspreken')
 args = parser.parse_args()
 
 import TekstNaarSpraak
@@ -234,9 +235,12 @@ def alinea (samenhang = 1, aantalzinnen = 2):
 #
 if args.print == 'zin':
     for _ in range(int(args.aantal)):
-       print(Volzin())
+       mijn_zin = Volzin()
+       print(mijn_zin)
+       if args.sound:
+            TekstNaarSpraak.VertelMij(mijn_zin)
 else:
-    print(alinea(int(args.samenhang),int(args.aantal)))
-#print(Volzin())
-#print(alinea(1,5))
-TekstNaarSpraak.VertelMij(alinea(1,2))
+    mijn_alinea = alinea(int(args.samenhang),int(args.aantal))
+    print(mijn_alinea)
+    if args.sound:
+        TekstNaarSpraak.VertelMij(mijn_alinea)

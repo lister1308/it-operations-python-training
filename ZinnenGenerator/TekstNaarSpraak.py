@@ -1,5 +1,4 @@
 import pyttsx3
-
 """
 PowerShell code to make the extra installed Narrator voices available to pyttsx3
 
@@ -14,10 +13,7 @@ $source = $voice.PSPath #Get the path of this voices key
 copy -Path $source -Destination $destinationPath -Recurse
 copy -Path $source -Destination $destinationPath2 -Recurse
 }
-
 """
-
-
 def VertelMij(text):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
