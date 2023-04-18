@@ -14,6 +14,8 @@ parser.add_argument('-p', '--print', default='alinea', help='Print een zin of al
 parser.add_argument('-a', '--aantal', default='5', help='Print aantal zinnen of zinnen in een alinea')
 args = parser.parse_args()
 
+import TekstNaarSpraak
+
 # Lijsten van woorden voor elk thema
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril"],
@@ -235,3 +237,6 @@ if args.print == 'zin':
        print(Volzin())
 else:
     print(alinea(int(args.samenhang),int(args.aantal)))
+#print(Volzin())
+#print(alinea(1,5))
+TekstNaarSpraak.VertelMij(alinea(1,2))
