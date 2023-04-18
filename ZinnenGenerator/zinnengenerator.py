@@ -138,16 +138,80 @@ def onderwerp(thema=None):
         return lidwoord(zsn) + " " + bijvoeglijk_naamwoord(thema) + " " + zsn
 
 #<zin> ::= <onderwerp> <werkwoord> “.” | <onderwerp> <werkwoord> <koppelwoord> <lijdend_voorwerp> “.”
+
+class Volzin:
+    def __init__(self, soort=None, thema=None, onderw=None):
+        if thema is None:
+            thema = random.choice(list(zelfstandige_naamwoorden.keys()))
+        if onderw is None:
+            onderw = onderwerp(thema)
+        self.thema = thema
+        self.onderwerp = onderw
+        self.werkwoord = werkwoord(thema)
+        self.koppelwoord = koppelwoord()
+        self.lijdend_voorwerp = lijdend_voorwerp(thema)
+        if soort == "Simpel":
+            self.zin = self.onderwerp + " " + self.werkwoord + "."
+        elif soort == "Uitgebreid":
+            self.zin = self.onderwerp + " " + self.werkwoord + " " + self.koppelwoord + " " + self.lijdend_voorwerp + "."
+        else:
+            if random.choice([True, False]):
+                self.zin = self.onderwerp + " " + self.werkwoord + "."
+            else:
+                self.zin = self.onderwerp + " " + self.werkwoord + " " + self.koppelwoord + " " + self.lijdend_voorwerp + "."
+        self.zin = self.zin.capitalize()
+        
+    def __str__(self):
+        return self.zin
+'''
 def volzin(thema=None):
     if thema is None:
         thema = random.choice(list(zelfstandige_naamwoorden.keys()))
+
     if random.choice([True, False]):
         zin = onderwerp(thema) + " " + werkwoord(thema) + "."
     else:
-        zin = onderwerp(thema) + " " + werkwoord(thema) + " " + koppelwoord() + " " + lijdend_voorwerp(thema) + "."
+        zin = onderwerp(thema) + " " + werkwoord (thema) + " " + koppelwoord() + " " + lijdend_voorwerp(thema) + "."
     return zin.capitalize()
+'''
+
+# Meerdere zinnen met een bepaalde samenhang vormen samen een alinea:
+# <alinea> ::= <zin> | <zin> <zin> | <zin> <zin> <zin> | …
+# De samenhang wordt veroorzaakt doordat de zinnen in een alinea naar elkaar verwijzen, 
+# over het zelfde onderwerp verhalen of overeenkomstige onderwerpen bevatten. 
+# Deze samenhang wordt in te realiseren programma bestuurd met de parameter samenhang.
+
+# Met de parameter samenhang in de functie alinea wordt bedoeld, de mate waarin een onderwerp in 
+# de volgende zin herhaald wordt. 
+
+# Met 0 is er geen herhaling, met 1 wordt een gebruikt lijdend voorwerp in de volgende zin als 
+# onderwerp gebruikt, enzovoorts.
+
+# Voorbeelden
+# Het volle glas staat op de tafel. De kat loopt door de kamer. (samenhang 0)
+# Het volle glas staat op de tafel. De tafel staat in de kamer. (samenhang 1)
+
+def alinea (samenhang = 1, aantalzinnen = 2):
+    alinea = ""
+    if samenhang == 0:
+        for _ in range(aantalzinnen):
+            zin = Volzin(soort="Uitgebreid")
+            alinea = alinea + zin.zin
+
+    if samenhang == 1:
+        zin1 = Volzin(soort="Uitgebreid")
+        alinea = zin1.zin
+        for _ in range(aantalzinnen-1):
+            onderwerpzin = zin1.lijdend_voorwerp
+            zin2 = Volzin(soort="Uitgebreid",onderw=onderwerpzin)
+            alinea = alinea + " " + zin2.zin
+            zin1=zin2
+            
+    return alinea
+    
 
 # huiswerk:
+# Functies opnemen in een module
 # geen dubbele onderwerpen in 1 zin, zelfde voor bijvoeglijk naamwwoord: Lucas
 # keuze van de woorden in de dictionaries: Erwin
 # stem in nederlands en omzetten naar functie die je aanroept met zin: Frank / Bert
@@ -162,4 +226,5 @@ def volzin(thema=None):
 - functie met als aanroep, dictionary, geeft terug random entry
 - bij zin, eerst zelfstandig naamwoord, dan lidwoord
 """
-print(volzin())
+#print(Volzin())
+print(alinea(1,5))
