@@ -91,14 +91,12 @@ def lidwoord(zelfstandig_naamwoord):
     except:
         return "een"
 
-
 # alternatief
 #def lidwoord(zelfstandig_naamwoord):
 #    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
 #        return 'het'
 #    else:
 #        return 'de'
-        
 
 #<bijvoegelijk_naamwoord> ::= “blauwe” | “grote” | “volle” | …
 def bijvoeglijk_naamwoord(thema=None):
@@ -138,7 +136,6 @@ def onderwerp(thema=None):
         return lidwoord(zsn) + " " + bijvoeglijk_naamwoord(thema) + " " + zsn
 
 #<zin> ::= <onderwerp> <werkwoord> “.” | <onderwerp> <werkwoord> <koppelwoord> <lijdend_voorwerp> “.”
-
 class Volzin:
     def __init__(self, soort=None, thema=None, onderw=None):
         if thema is None:
@@ -150,6 +147,10 @@ class Volzin:
         self.werkwoord = werkwoord(thema)
         self.koppelwoord = koppelwoord()
         self.lijdend_voorwerp = lijdend_voorwerp(thema)
+        # als lijdend voorwerp identiek is aan onderwerp, nog een keer
+        while (self.lijdend_voorwerp.split())[-1] == (self.onderwerp.split())[-1]:
+            self.lijdend_voorwerp = lijdend_voorwerp(thema)
+
         if soort == "Simpel":
             self.zin = self.onderwerp + " " + self.werkwoord + "."
         elif soort == "Uitgebreid":
@@ -208,7 +209,6 @@ def alinea (samenhang = 1, aantalzinnen = 2):
             zin1=zin2
             
     return alinea
-    
 
 # huiswerk:
 # Functies opnemen in een module
@@ -221,10 +221,5 @@ def alinea (samenhang = 1, aantalzinnen = 2):
 # plaatjes van henny, rudi, evert maken ahv zakelijk tekenen: Tom
 # yoda mode (osv mode), groningse mode
 #
-"""
-- dictionary van: lidwoord, zelfstandig_naamwoord, lijdend_voorwerp, bijvoeglijk_naamwoord, werkwoord, koppelwoord
-- functie met als aanroep, dictionary, geeft terug random entry
-- bij zin, eerst zelfstandig naamwoord, dan lidwoord
-"""
 #print(Volzin())
 print(alinea(1,5))
