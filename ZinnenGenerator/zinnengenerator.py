@@ -9,19 +9,19 @@ import TekstNaarSpraak
 
 # Lijsten van woorden voor elk thema
 zelfstandige_naamwoorden = {
-    "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril"],
-    "meubels": ["bank", "bureau", "kruk", "kast"],
-    "mensen": ["vriend", "familie", "collega", "leraar"],
-    "dieren": ["hond", "kat", "konijn", "vogel"],
-    "voertuigen": ["fiets", "auto", "bus", "trein"],
-    "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis"],
-    "gebouwen": ["kasteel", "museum", "restaurant", "hotel"],
-    "bomen": ["eik", "beuk", "den", "esdoorn"],
-    "planten": ["cactus", "orchidee", "tulp", "varen"]
+    "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
+    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir"],
+    "mensen": ["vriend", "familie", "collega", "leraar", "Sinterklaas", "politieagent", "verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
+    "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang"],
+    "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
+    "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis", "bos"],
+    "gebouwen": ["kasteel", "museum", "restaurant", "hotel", "vliegveld"],
+    "bomen": ["eik", "beuk", "den", "esdoorn", "kastanje"],
+    "planten": ["cactus", "orchidee", "tulp", "varen", "klimop", "monstera", "duizendknoop"]
 }
 
 lijdende_voorwerpen = {
-    "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord"],
+    "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord", "patchkabel"],
     "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter"],
     "mensen": ["brief", "cadeau", "paraplu", "tas"],
     "dieren": ["bal", "speeltje", "riem", "voerbak"],
@@ -34,14 +34,14 @@ lijdende_voorwerpen = {
 
 bijvoeglijke_naamwoorden = {
     "voorwerpen": ["roze", "glanzende", "oude", "duurzame"],
-    "meubels": ["comfortabele", "moderne", "klassieke", "verstelbare"],
+    "meubels": ["comfortabele", "moderne", "klassieke", "verstelbare", "lelijke"],
     "mensen": ["sympathieke", "slimme", "grappige", "aardige"],
     "dieren": ["schattige", "speelse", "lieve", "trouwe"],
-    "voertuigen": ["snelle", "efficiënte", "ruime", "luxueuze"],
+    "voertuigen": ["snelle", "efficiënte", "ruime", "luxueuze", "elektrische"],
     "plaatsen": ["drukke", "schone", "gezellige", "veilige"],
     "gebouwen": ["romantische", "chique", "historische", "unieke"],
     "bomen": ["grote", "oude", "mooie", "geurende"],
-    "planten": ["groene", "bonte", "gezonde", "kleurrijke"]
+    "planten": ["groene", "bonte", "gezonde", "kleurrijke", "geurige"]
 }
 
 '''
@@ -58,15 +58,15 @@ Kun je een python dictionary maken die voor de onderstaande thema's 4 werkwoorde
 - planten
 '''
 werkwoorden = {
-    "voorwerpen": ["pakt", "zet", "duwt", "tilt"],
-    "meubels": ["stoft", "verplaatst", "monteert", "polijst"],
-    "mensen": ["praat", "werkt", "loopt", "luistert"],
+    "voorwerpen": ["pakt", "zet", "duwt", "tilt", "grijpt", "gooit"],
+    "meubels": ["stoft", "verplaatst", "monteert", "polijst", "poetst"],
+    "mensen": ["praat", "werkt", "loopt", "luistert", "knuffelt"],
     "dieren": ["voedt", "aait", "traint", "observeert"],
-    "voertuigen": ["rijdt", "parkeert", "onderhoudt", "tankt"],
-    "plaatsen": ["bezoekt", "ontdekt", "verlaat", "fotografeert"],
+    "voertuigen": ["rijdt", "parkeert", "onderhoudt", "tankt", "wast", "poetst"],
+    "plaatsen": ["bezoekt", "ontdekt", "verlaat", "fotografeert", "bewondert"],
     "gebouwen": ["betreedt", "verlaat", "renoveert", "bewondert"],
-    "bomen": ["plant", "snoeit", "observeert", "klimt"],
-    "planten": ["plant", "verpot", "snoeit", "observeert"]
+    "bomen": ["plant", "snoeit", "observeert", "klimt", "knuffelt", "stekt",],
+    "planten": ["plant", "verpot", "snoeit", "observeert", "stekt"]
 }
 
 koppelwoorden = ["op", "in", "voor", "onder"]
@@ -93,12 +93,14 @@ def lidwoord(zelfstandig_naamwoord):
     except:
         return "een"
 
+
 # alternatief
 #def lidwoord(zelfstandig_naamwoord):
 #    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
 #        return 'het'
 #    else:
 #        return 'de'
+        
 
 #<bijvoegelijk_naamwoord> ::= “blauwe” | “grote” | “volle” | …
 def bijvoeglijk_naamwoord(thema=None):
@@ -138,6 +140,7 @@ def onderwerp(thema=None):
         return lidwoord(zsn) + " " + bijvoeglijk_naamwoord(thema) + " " + zsn
 
 #<zin> ::= <onderwerp> <werkwoord> “.” | <onderwerp> <werkwoord> <koppelwoord> <lijdend_voorwerp> “.”
+
 class Volzin:
     def __init__(self, soort=None, thema=None, onderw=None):
         if thema is None:
@@ -149,10 +152,6 @@ class Volzin:
         self.werkwoord = werkwoord(thema)
         self.koppelwoord = koppelwoord()
         self.lijdend_voorwerp = lijdend_voorwerp(thema)
-        # als lijdend voorwerp identiek is aan onderwerp, nog een keer
-        while (self.lijdend_voorwerp.split())[-1] == (self.onderwerp.split())[-1]:
-            self.lijdend_voorwerp = lijdend_voorwerp(thema)
-
         if soort == "Simpel":
             self.zin = self.onderwerp + " " + self.werkwoord + "."
         elif soort == "Uitgebreid":
@@ -211,6 +210,7 @@ def alinea (samenhang = 1, aantalzinnen = 2):
             zin1=zin2
             
     return alinea
+    
 
 # huiswerk:
 # Functies opnemen in een module
@@ -223,6 +223,11 @@ def alinea (samenhang = 1, aantalzinnen = 2):
 # plaatjes van henny, rudi, evert maken ahv zakelijk tekenen: Tom
 # yoda mode (osv mode), groningse mode
 #
+"""
+- dictionary van: lidwoord, zelfstandig_naamwoord, lijdend_voorwerp, bijvoeglijk_naamwoord, werkwoord, koppelwoord
+- functie met als aanroep, dictionary, geeft terug random entry
+- bij zin, eerst zelfstandig naamwoord, dan lidwoord
+"""
 #print(Volzin())
 #print(alinea(1,5))
 TekstNaarSpraak.VertelMij(alinea(1,2))
