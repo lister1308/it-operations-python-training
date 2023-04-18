@@ -118,8 +118,8 @@ def koppelwoord():
 def lijdend_voorwerp(thema=None):
     if thema is None:
         thema = random.choice(list(lijdende_voorwerpen.keys()))
-    return random.choice(lijdende_voorwerpen[thema])
-    #return onderwerp(thema)
+    #return random.choice(lijdende_voorwerpen[thema])
+    return onderwerp(thema)
 
 #<werkwoord> ::= “staat” | “zit” | “ligt” | …
 def werkwoord(thema=None):
@@ -151,26 +151,15 @@ def volzin(thema=None):
         zin = onderwerp(thema) + " " + werkwoord(thema) + " " + koppelwoord() + " " + lijdend_voorwerp(thema) + "."
     return zin.capitalize()
 
-# huiswerk tijdelijke bestanden
-# vermeld onder je module welke functies er in zitten
-#
-#import lucas.py
-#
-#
-#import bert.py
-#
-#
-#import frank.py
-#
-#
-#import wouter.py
-#
-#
-#import tom.py
-#
-#
-#import erwin.py
-#
+# huiswerk:
+# geen dubbele onderwerpen in 1 zin, zelfde voor bijvoeglijk naamwwoord: Lucas
+# keuze van de woorden in de dictionaries: Erwin
+# stem in nederlands en omzetten naar functie die je aanroept met zin: Frank / Bert
+# nadenken over alinea: Wouter
+# fun factor diverse mogelijkheden: web / geluid / ascii art, wat wordt uiteindelijke presentatie?
+# wordt thema goed gebruikt nu, themacontrole? Bert
+# plaatjes van henny, rudi, evert maken ahv zakelijk tekenen: Tom
+# yoda mode (osv mode), groningse mode
 #
 """
 - dictionary van: lidwoord, zelfstandig_naamwoord, lijdend_voorwerp, bijvoeglijk_naamwoord, werkwoord, koppelwoord

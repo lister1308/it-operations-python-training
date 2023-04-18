@@ -15,7 +15,7 @@ voices = engine.getProperty('voices')      # vraag de huidige stem op
 engine.setProperty('voice', voices[0].id)  # zet de stem, 1 for man 0 for vrouw
 
 rate = engine.getProperty('rate')          # vraag de huidige snelhied van spreken op
-engine.setProperty('rate', 150)            # zet de snelheid van spreken
+engine.setProperty('rate', 100)            # zet de snelheid van spreken
 
 stoptekst = "goodbye and hope to see you again"
 starttekst = "Enter the text you want to hear, or QUIT to stop"
