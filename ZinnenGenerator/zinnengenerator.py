@@ -220,7 +220,6 @@ def alinea (samenhang = 1, aantalzinnen = 2):
             zin1=zin2
             
     return alinea
-    
 
 # huiswerk:
 # Functies opnemen in een module

@@ -68,11 +68,20 @@
           method: 'POST',
           body: formData
         });
-        const text = await response.text();
-        output.innerText = text;
+        const data = await response.json();
+        output_text.innerText = data.text;
+        output_image.src = data.image_url;
       });
     </script>
-    <center><img src={{url_for('static', filename='jip-en-janneke2.jpg')}}><br>
+    <table width="90%">
+      <tr>
+        <td align=center><div class="container my-5">
+          <img id="output_image" width=75% src="">
+        </div></td>
+    <td>
+    <center><img src={{url_for('static', filename='jip-en-janneke2.jpg')}}>
+    </td>
+    </tr></table>
     <font size=-2>&copy Copyright 2023 by Frank/Erwin/Tom/Lucas/Bert/Wouter</font></center>
   </body>
 </html>
