@@ -4,6 +4,15 @@ import random
 import requests
 # python -m pip install bs4
 from bs4 import BeautifulSoup
+#
+import argparse
+
+# argumenten voor als code vanuit webinterface wordt aangeroepen
+parser = argparse.ArgumentParser(description="Omschrijving: genereer een random zin of zelfs complete alinea")
+parser.add_argument('-s', '--samenhang', default=1, help='Is er samenhang tussen de zinnen, default 1 = ja, of 0 = nee')
+parser.add_argument('-p', '--print', default='alinea', help='Print een zin of alinea')
+parser.add_argument('-a', '--aantal', default='5', help='Print aantal zinnen of zinnen in een alinea')
+args = parser.parse_args()
 
 # Lijsten van woorden voor elk thema
 zelfstandige_naamwoorden = {
@@ -197,7 +206,7 @@ def alinea (samenhang = 1, aantalzinnen = 2):
     if samenhang == 0:
         for _ in range(aantalzinnen):
             zin = Volzin(soort="Uitgebreid")
-            alinea = alinea + zin.zin
+            alinea = alinea + " " + zin.zin
 
     if samenhang == 1:
         zin1 = Volzin(soort="Uitgebreid")
@@ -221,5 +230,8 @@ def alinea (samenhang = 1, aantalzinnen = 2):
 # plaatjes van henny, rudi, evert maken ahv zakelijk tekenen: Tom
 # yoda mode (osv mode), groningse mode
 #
-#print(Volzin())
-print(alinea(1,5))
+if args.print == 'zin':
+    for _ in range(int(args.aantal)):
+       print(Volzin())
+else:
+    print(alinea(int(args.samenhang),int(args.aantal)))
