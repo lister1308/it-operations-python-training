@@ -5,10 +5,6 @@ import requests
 # python -m pip install bs4
 from bs4 import BeautifulSoup
 
-
-# bestand met daarin de dictionaries
-# import zinnengenerator_dict.py
-
 # Lijsten van woorden voor elk thema
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril"],
