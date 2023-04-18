@@ -5,6 +5,8 @@ import requests
 # python -m pip install bs4
 from bs4 import BeautifulSoup
 
+import TekstNaarSpraak
+
 # Lijsten van woorden voor elk thema
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril"],
@@ -227,4 +229,5 @@ def alinea (samenhang = 1, aantalzinnen = 2):
 - bij zin, eerst zelfstandig naamwoord, dan lidwoord
 """
 #print(Volzin())
-print(alinea(1,5))
+#print(alinea(1,5))
+TekstNaarSpraak.VertelMij(alinea(1,2))
