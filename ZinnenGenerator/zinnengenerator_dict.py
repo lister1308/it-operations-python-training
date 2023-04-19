@@ -1,14 +1,13 @@
-# Lijsten van woorden voor elk thema
 zelfstandige_naamwoorden = {
-    "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril"],
-    "meubels": ["bank", "bureau", "kruk", "kast"],
-    "mensen": ["vriend", "familie", "collega", "leraar"],
-    "dieren": ["hond", "kat", "konijn", "vogel"],
-    "voertuigen": ["fiets", "auto", "bus", "trein"],
-    "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis"],
-    "gebouwen": ["kasteel", "museum", "restaurant", "hotel"],
-    "bomen": ["eik", "beuk", "den", "esdoorn"],
-    "planten": ["cactus", "orchidee", "tulp", "varen"]
+    "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
+    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir"],
+    "mensen": ["vriend", "familie", "collega", "leraar", "Sinterklaas", "politieagent", "verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
+    "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang"],
+    "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
+    "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis", "bos"],
+    "gebouwen": ["kasteel", "museum", "restaurant", "hotel", "vliegveld"],
+    "bomen": ["eik", "beuk", "den", "esdoorn", "kastanje"],
+    "planten": ["cactus", "orchidee", "tulp", "varen", "klimop", "monstera", "duizendknoop"]
 }
 
 lijdende_voorwerpen = {
@@ -24,25 +23,27 @@ lijdende_voorwerpen = {
 }
 
 bijvoeglijke_naamwoorden = {
-    "voorwerpen": ["roze", "glanzend", "oud", "duurzaam"],
-    "meubels": ["comfortabel", "modern", "klassiek", "verstelbaar"],
-    "mensen": ["sympathiek", "slim", "grappig", "aardig"],
-    "dieren": ["schattig", "speels", "lief", "trouw"],
-    "voertuigen": ["snel", "efficiënt", "ruim", "luxueus"],
-    "plaatsen": ["druk", "schoon", "gezellig", "veilig"],
-    "gebouwen": ["romantisch", "chique", "historisch", "uniek"],
-    "bomen": ["groot", "oud", "mooi", "geurend"],
-    "planten": ["groen", "bont", "gezond", "kleurrijk"]
+    "voorwerpen": ["roze", "glanzende", "oude", "duurzame"],
+    "meubels": ["comfortabele", "moderne", "klassieke", "verstelbare", "lelijke"],
+    "mensen": ["sympathieke", "slimme", "grappige", "aardige"],
+    "dieren": ["schattige", "speelse", "lieve", "trouwe"],
+    "voertuigen": ["snelle", "efficiënte", "ruime", "luxueuze", "elektrische"],
+    "plaatsen": ["drukke", "schone", "gezellige", "veilige"],
+    "gebouwen": ["romantische", "chique", "historische", "unieke"],
+    "bomen": ["grote", "oude", "mooie", "geurende"],
+    "planten": ["groene", "bonte", "gezonde", "kleurrijke", "geurige"]
 }
 
 werkwoorden = {
-    "voorwerpen": ["vasthouden", "opladen", "gebruiken", "verliezen"],
-    "meubels": ["schuiven", "verstellen", "monteren", "schoonmaken"],
-    "mensen": ["ontmoeten", "helpen", "bezoeken", "adviseren"],
-    "dieren": ["voeden", "aaien", "trainen", "uitlaten"],
-    "voertuigen": ["besturen", "onderhouden", "wassen", "parkeren"],
-    "plaatsen": ["bezoeken", "wandelen", "shoppen", "picknicken"],
-    "gebouwen": ["bezichtigen", "reserveren", "betreden", "verlaten"],
-    "bomen": ["planten", "snoeien", "verzorgen", "kappen"],
-    "planten": ["water geven", "verpotten", "snoeien", "mesten"]
+    "voorwerpen": ["pakt", "zet", "duwt", "tilt", "grijpt", "gooit"],
+    "meubels": ["stoft", "verplaatst", "monteert", "polijst", "poetst"],
+    "mensen": ["praat", "werkt", "loopt", "luistert", "knuffelt"],
+    "dieren": ["voedt", "aait", "traint", "observeert"],
+    "voertuigen": ["rijdt", "parkeert", "onderhoudt", "tankt", "wast", "poetst"],
+    "plaatsen": ["bezoekt", "ontdekt", "verlaat", "fotografeert", "bewondert"],
+    "gebouwen": ["betreedt", "verlaat", "renoveert", "bewondert"],
+    "bomen": ["plant", "snoeit", "observeert", "klimt", "knuffelt", "stekt",],
+    "planten": ["plant", "verpot", "snoeit", "observeert", "stekt"]
 }
+
+koppelwoorden = ["op", "in", "voor", "onder"]

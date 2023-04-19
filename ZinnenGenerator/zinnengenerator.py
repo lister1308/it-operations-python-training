@@ -6,6 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 #
 import argparse
+import TekstNaarSpraak
+import zinnengenerator_dict as woordenlijsten
 
 # argumenten voor als code vanuit webinterface wordt aangeroepen
 parser = argparse.ArgumentParser(description="Omschrijving: genereer een random zin of zelfs complete alinea")
@@ -15,72 +17,6 @@ parser.add_argument('-a', '--aantal', default='5', type=int, help='Print aantal 
 parser.add_argument('--sound', action='store_true', help='geef deze mee als je zin wilt laten uitspreken')
 args = parser.parse_args()
 
-import TekstNaarSpraak
-
-# Lijsten van woorden voor elk thema
-zelfstandige_naamwoorden = {
-    "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
-    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir"],
-    "mensen": ["vriend", "familie", "collega", "leraar", "Sinterklaas", "politieagent", "verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
-    "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang"],
-    "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
-    "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis", "bos"],
-    "gebouwen": ["kasteel", "museum", "restaurant", "hotel", "vliegveld"],
-    "bomen": ["eik", "beuk", "den", "esdoorn", "kastanje"],
-    "planten": ["cactus", "orchidee", "tulp", "varen", "klimop", "monstera", "duizendknoop"]
-}
-
-# Niet nodig, lijdende voorwerpen komen ook uit de zelfstandige naamwoorden dictionary.
-# lijdende_voorwerpen = {
-#     "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord", "patchkabel"],
-#     "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter"],
-#     "mensen": ["brief", "cadeau", "paraplu", "tas"],
-#     "dieren": ["bal", "speeltje", "riem", "voerbak"],
-#     "voertuigen": ["helm", "stoelhoes", "sneeuwkettingen", "dakdragers"],
-#     "plaatsen": ["karretje", "tas", "parasol", "koelbox"],
-#     "gebouwen": ["menukaart", "servet", "wijnkaart", "asbak"],
-#     "bomen": ["blad", "eikel", "dop", "tak"],
-#     "planten": ["bloem", "blad", "pot", "gieter"]
-# }
-
-bijvoeglijke_naamwoorden = {
-    "voorwerpen": ["roze", "glanzende", "oude", "duurzame"],
-    "meubels": ["comfortabele", "moderne", "klassieke", "verstelbare", "lelijke"],
-    "mensen": ["sympathieke", "slimme", "grappige", "aardige"],
-    "dieren": ["schattige", "speelse", "lieve", "trouwe"],
-    "voertuigen": ["snelle", "efficiënte", "ruime", "luxueuze", "elektrische"],
-    "plaatsen": ["drukke", "schone", "gezellige", "veilige"],
-    "gebouwen": ["romantische", "chique", "historische", "unieke"],
-    "bomen": ["grote", "oude", "mooie", "geurende"],
-    "planten": ["groene", "bonte", "gezonde", "kleurrijke", "geurige"]
-}
-
-'''
-Kun je een python dictionary maken die voor de onderstaande thema's 4 werkwoorden bevat in de enkelvoudige persoonsvorm in de vorm Hij/Zij/Het.
-
-- voorwerpen
-- meubels
-- mensen
-- dieren
-- voertuigen
-- plaatsen
-- gebouwen
-- bomen
-- planten
-'''
-werkwoorden = {
-    "voorwerpen": ["pakt", "zet", "duwt", "tilt", "grijpt", "gooit"],
-    "meubels": ["stoft", "verplaatst", "monteert", "polijst", "poetst"],
-    "mensen": ["praat", "werkt", "loopt", "luistert", "knuffelt"],
-    "dieren": ["voedt", "aait", "traint", "observeert"],
-    "voertuigen": ["rijdt", "parkeert", "onderhoudt", "tankt", "wast", "poetst"],
-    "plaatsen": ["bezoekt", "ontdekt", "verlaat", "fotografeert", "bewondert"],
-    "gebouwen": ["betreedt", "verlaat", "renoveert", "bewondert"],
-    "bomen": ["plant", "snoeit", "observeert", "klimt", "knuffelt", "stekt",],
-    "planten": ["plant", "verpot", "snoeit", "observeert", "stekt"]
-}
-
-koppelwoorden = ["op", "in", "voor", "onder"]
 
 # Functie voor het bepalen van het lidwoord. Afgestapt van bepaling dmv logica in de functie aangezien 
 # er te veel uitzonderingen zijn en dit zorgt voor niet lekker lopende zinnen.
@@ -116,31 +52,31 @@ def lidwoord(zelfstandig_naamwoord):
 #<bijvoegelijk_naamwoord> ::= “blauwe” | “grote” | “volle” | …
 def bijvoeglijk_naamwoord(thema=None):
     if thema is None:
-        thema = random.choice(list(bijvoeglijke_naamwoorden.keys()))
-    return random.choice(bijvoeglijke_naamwoorden[thema])
+        thema = random.choice(list(woordenlijsten.bijvoeglijke_naamwoorden.keys()))
+    return random.choice(woordenlijsten.bijvoeglijke_naamwoorden[thema])
 
 #<koppelwoord> ::= “op” | “in” | “voor” | “onder” | …
 def koppelwoord(): 
-    return random.choice(koppelwoorden)
+    return random.choice(woordenlijsten.koppelwoorden)
 
 #<lijdend_voorwerp> ::= <onderwerp>
 def lijdend_voorwerp(thema=None):
-    if thema is None:
-        thema = random.choice(list(lijdende_voorwerpen.keys()))
+    # if thema is None:
+        # thema = random.choice(list(lijdende_voorwerpen.keys()))
     #return random.choice(lijdende_voorwerpen[thema])
     return onderwerp(thema)
 
 #<werkwoord> ::= “staat” | “zit” | “ligt” | …
 def werkwoord(thema=None):
     if thema is None:
-        thema = random.choice(list(werkwoorden.keys()))
-    return random.choice(werkwoorden[thema])
+        thema = random.choice(list(woordenlijsten.werkwoorden.keys()))
+    return random.choice(woordenlijsten.werkwoorden[thema])
 
 #<zelfstandig_naamwoord> ::= “glas” | “pen” | “netwerkkabel” | …
 def zelfstandig_naamwoord(thema=None):
     if thema is None:
-        thema = random.choice(list(zelfstandige_naamwoorden.keys()))
-    return random.choice(zelfstandige_naamwoorden[thema])
+        thema = random.choice(list(woordenlijsten.zelfstandige_naamwoorden.keys()))
+    return random.choice(woordenlijsten.zelfstandige_naamwoorden[thema])
 
 #<onderwerp> ::= <lidwoord> <zelfstandig_naamwoord> | <lidwoord> <bijvoegelijk_naamwoord> <zelfstandig_naamwoord>
 def onderwerp(thema=None):
@@ -155,7 +91,7 @@ def onderwerp(thema=None):
 class Volzin:
     def __init__(self, soort=None, thema=None, onderw=None):
         if thema is None:
-            thema = random.choice(list(zelfstandige_naamwoorden.keys()))
+            thema = random.choice(list(woordenlijsten.zelfstandige_naamwoorden.keys()))
         if onderw is None:
             onderw = onderwerp(thema)
         self.thema = thema
