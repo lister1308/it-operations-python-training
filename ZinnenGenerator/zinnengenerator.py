@@ -31,17 +31,17 @@ zelfstandige_naamwoorden = {
 }
 
 # Niet nodig, lijdende voorwerpen komen ook uit de zelfstandige naamwoorden dictionary.
-# lijdende_voorwerpen = {
-#     "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord", "patchkabel"],
-#     "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter"],
-#     "mensen": ["brief", "cadeau", "paraplu", "tas"],
-#     "dieren": ["bal", "speeltje", "riem", "voerbak"],
-#     "voertuigen": ["helm", "stoelhoes", "sneeuwkettingen", "dakdragers"],
-#     "plaatsen": ["karretje", "tas", "parasol", "koelbox"],
-#     "gebouwen": ["menukaart", "servet", "wijnkaart", "asbak"],
-#     "bomen": ["blad", "eikel", "dop", "tak"],
-#     "planten": ["bloem", "blad", "pot", "gieter"]
-# }
+lijdende_voorwerpen = {
+    "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord", "patchkabel"],
+    "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter"],
+    "mensen": ["brief", "cadeau", "paraplu", "tas"],
+    "dieren": ["bal", "speeltje", "riem", "voerbak"],
+    "voertuigen": ["helm", "stoelhoes", "sneeuwkettingen", "dakdragers"],
+    "plaatsen": ["karretje", "tas", "parasol", "koelbox"],
+    "gebouwen": ["menukaart", "servet", "wijnkaart", "asbak"],
+    "bomen": ["blad", "eikel", "dop", "tak"],
+    "planten": ["bloem", "blad", "pot", "gieter"]
+}
 
 bijvoeglijke_naamwoorden = {
     "voorwerpen": ["roze", "glanzende", "oude", "duurzame"],
