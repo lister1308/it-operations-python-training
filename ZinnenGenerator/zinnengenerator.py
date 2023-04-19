@@ -52,7 +52,7 @@ def lidwoord(zelfstandig_naamwoord):
 #<bijvoegelijk_naamwoord> ::= “blauwe” | “grote” | “volle” | …
 def bijvoeglijk_naamwoord(thema=None):
     if thema is None:
-        thema = random.choice(list(bijvoeglijke_naamwoorden.keys()))
+        thema = random.choice(list(woordenlijsten.bijvoeglijke_naamwoorden.keys()))
     return random.choice(woordenlijsten.bijvoeglijke_naamwoorden[thema])
 
 #<koppelwoord> ::= “op” | “in” | “voor” | “onder” | …
