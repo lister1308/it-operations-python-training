@@ -31,17 +31,17 @@ zelfstandige_naamwoorden = {
 }
 
 # Niet nodig, lijdende voorwerpen komen ook uit de zelfstandige naamwoorden dictionary.
-lijdende_voorwerpen = {
-    "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord", "patchkabel"],
-    "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter"],
-    "mensen": ["brief", "cadeau", "paraplu", "tas"],
-    "dieren": ["bal", "speeltje", "riem", "voerbak"],
-    "voertuigen": ["helm", "stoelhoes", "sneeuwkettingen", "dakdragers"],
-    "plaatsen": ["karretje", "tas", "parasol", "koelbox"],
-    "gebouwen": ["menukaart", "servet", "wijnkaart", "asbak"],
-    "bomen": ["blad", "eikel", "dop", "tak"],
-    "planten": ["bloem", "blad", "pot", "gieter"]
-}
+# lijdende_voorwerpen = {
+#     "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord", "patchkabel"],
+#     "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter"],
+#     "mensen": ["brief", "cadeau", "paraplu", "tas"],
+#     "dieren": ["bal", "speeltje", "riem", "voerbak"],
+#     "voertuigen": ["helm", "stoelhoes", "sneeuwkettingen", "dakdragers"],
+#     "plaatsen": ["karretje", "tas", "parasol", "koelbox"],
+#     "gebouwen": ["menukaart", "servet", "wijnkaart", "asbak"],
+#     "bomen": ["blad", "eikel", "dop", "tak"],
+#     "planten": ["bloem", "blad", "pot", "gieter"]
+# }
 
 bijvoeglijke_naamwoorden = {
     "voorwerpen": ["roze", "glanzende", "oude", "duurzame"],
@@ -125,8 +125,8 @@ def koppelwoord():
 
 #<lijdend_voorwerp> ::= <onderwerp>
 def lijdend_voorwerp(thema=None):
-    if thema is None:
-        thema = random.choice(list(lijdende_voorwerpen.keys()))
+    # if thema is None:
+        # thema = random.choice(list(lijdende_voorwerpen.keys()))
     #return random.choice(lijdende_voorwerpen[thema])
     return onderwerp(thema)
 
