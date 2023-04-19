@@ -162,6 +162,8 @@ class Volzin:
         self.werkwoord = werkwoord(thema)
         self.koppelwoord = koppelwoord()
         self.lijdend_voorwerp = lijdend_voorwerp(thema)
+        while (self.lijdend_voorwerp.split())[-1] == (self.onderwerp.split())[-1]:
+            self.lijdend_voorwerp = lijdend_voorwerp(thema) 
         if soort == "Simpel":
             self.zin = self.onderwerp + " " + self.werkwoord + "."
         elif soort == "Uitgebreid":

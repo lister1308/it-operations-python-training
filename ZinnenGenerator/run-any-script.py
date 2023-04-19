@@ -12,7 +12,7 @@ def index():
 @app.route("/process", methods=["POST"])
 def process():
     if platform.system() == 'Windows':
-        output = subprocess.check_output(["python", "c:\\Users\\tepperl\\Python\\it-operations-python-training\\ZinnenGenerator\\zinnengenerator.py"])
+        output = subprocess.check_output(["python", "c:\\Users\\tepperl\\Python\\it-operations-python-training\\ZinnenGenerator\\zinnengenerator.py","--print","zin","--aantal","1"])
     else:
         output = subprocess.check_output(["/opt/homebrew/bin/python3.9", "/Users/lucas/stack/Python/itoperations/ZinnenGenerator/zinnengenerator.py","--print","zin","--aantal",'1'])
     # zoek naar afbeeldingen met de zoekopdracht uit 'output'
