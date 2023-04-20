@@ -1,4 +1,5 @@
 import pyttsx3
+import platform
 """
 PowerShell code to make the extra installed Narrator voices available to pyttsx3
 
@@ -17,8 +18,10 @@ copy -Path $source -Destination $destinationPath2 -Recurse
 def VertelMij(text):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[0].id) #for the default US Male voice
-    #engine.setProperty('voice', 'dutch') #for the default US Male voice
+    if platform.system() == 'Windows':
+        engine.setProperty('voice', voices[0].id) #for the default US Male voice
+    else:
+        engine.setProperty('voice', 'dutch') #for the default US Male voice
     #engine.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\MSTTS_V110_nlNL_Frank')
     engine.setProperty('rate', 150)
     #print(text)
