@@ -1,7 +1,7 @@
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
     "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir"],
-    "mensen": ["vriend", "familie", "collega", "leraar", "Sinterklaas", "politieagent", "verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
+    "mensen": ["vriend", "familie", "collega", "leraar", "politieagent", "verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
     "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang"],
     "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
     "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis", "bos"],
@@ -34,8 +34,9 @@ bijvoeglijke_naamwoorden = {
     "planten": ["groene", "bonte", "gezonde", "kleurrijke", "geurige"]
 }
 
+#Werkwoorden in enkelvoudige persoonsvorm in de vorm Hij/Zij/Het.
 werkwoorden = {
-    "voorwerpen": ["pakt", "zet", "duwt", "tilt", "grijpt", "gooit"],
+    "voorwerpen": ["ligt", "zet", "duwt", "tilt", "grijpt", "gooit"],
     "meubels": ["stoft", "verplaatst", "monteert", "polijst", "poetst"],
     "mensen": ["praat", "werkt", "loopt", "luistert", "knuffelt"],
     "dieren": ["voedt", "aait", "traint", "observeert"],
@@ -46,4 +47,5 @@ werkwoorden = {
     "planten": ["plant", "verpot", "snoeit", "observeert", "stekt"]
 }
 
+#Voorzetsels
 koppelwoorden = ["op", "in", "voor", "onder"]
