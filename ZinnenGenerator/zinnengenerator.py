@@ -162,11 +162,8 @@ def alinea (samenhang = 1, aantalzinnen = 2):
 
 # huiswerk:
 # Functies opnemen in een module
-# geen dubbele onderwerpen in 1 zin, zelfde voor bijvoeglijk naamwwoord: Lucas
-# keuze van de woorden in de dictionaries: Erwin
-# stem in nederlands en omzetten naar functie die je aanroept met zin: Frank / Bert
-# nadenken over alinea: Wouter
-# fun factor diverse mogelijkheden: web / geluid / ascii art, wat wordt uiteindelijke presentatie?
+# keuze van de woorden in de dictionaries: voorstel Wouter verder uitwerken
+# fun factor diverse mogelijkheden: web (opties in webinterface voor thema/aantal/geluid/zin vs alinea) 
 # wordt thema goed gebruikt nu, themacontrole? Bert
 # plaatjes van henny, rudi, evert maken ahv zakelijk tekenen: Tom
 # yoda mode (osv mode), groningse mode
