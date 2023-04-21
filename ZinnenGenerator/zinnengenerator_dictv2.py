@@ -52,10 +52,10 @@ werkwoorden = {
     "voorwerpen": {"ligt": ["op", "onder", "tussen"], "verdwijnt": ["in"]},
     "meubels": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
     "mensen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "dieren": {"kijkt": ["naar"], "springt": ["op", "over"], "ligt": ["in"]},
+    "dieren": {"kijkt": ["naar"], "springt": ["op", "over"], "ligt": ["naast"], "loopt": ["richting"]},
     "voertuigen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
     "plaatsen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
     "gebouwen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
     "bomen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "planeten": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]}
+    "planten": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]}
 }
