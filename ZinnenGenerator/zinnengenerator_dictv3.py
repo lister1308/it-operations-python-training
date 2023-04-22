@@ -13,32 +13,32 @@ themas = {
 
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
-    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir"],
-    "mensen": ["rudi","evert","henny","vriend", "familie", "collega", "leraar", "politieagent", "verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
-    "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang"],
+    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir","stoel","burostoel",""],
+    "mensen": ["rudi","evert","henny","vriend", "familie", "collega", "leraar", "politieagent", "vader","ouders","dochter","zoon","verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
+    "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang","tijger","olifant","bij"],
     "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
-    "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis", "bos"],
-    "gebouwen": ["kasteel", "museum", "restaurant", "hotel", "vliegveld"],
-    "bomen": ["eik", "beuk", "den", "esdoorn", "kastanje"],
-    "planten": ["cactus", "orchidee", "tulp", "varen", "klimop", "monstera", "duizendknoop"]
+    "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis", "bos", "pretpark", "concertzaal"],
+    "gebouwen": ["kasteel", "museum", "restaurant", "hotel", "vliegveld", "theater"],
+    "bomen": ["eik", "beuk", "den", "esdoorn", "kastanje", "wilg"],
+    "planten": ["cactus", "orchidee", "tulp", "varen", "klimop", "monstera", "duizendknoop", "lavendel"]
 }
 
 lijdende_voorwerpen = {
-    "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord"],
-    "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter"],
-    "mensen": ["brief", "cadeau", "paraplu", "tas"],
-    "dieren": ["bal", "speeltje", "riem", "voerbak"],
-    "voertuigen": ["helm", "stoelhoes", "sneeuwkettingen", "dakdragers"],
-    "plaatsen": ["karretje", "tas", "parasol", "koelbox"],
-    "gebouwen": ["menukaart", "servet", "wijnkaart", "asbak"],
-    "bomen": ["blad", "eikel", "dop", "tak"],
-    "planten": ["bloem", "blad", "pot", "gieter"]
+    "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord", "speaker","computer","netwerkswitch"],
+    "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter", "schemerlamp"],
+    "mensen": ["brief", "cadeau", "paraplu", "tas", "boek"],
+    "dieren": ["bal", "speeltje", "riem", "voerbak", "halsband"],
+    "voertuigen": ["helm", "stoelhoes", "sneeuwkettingen", "dakdragers", "fietsendrager"],
+    "plaatsen": ["karretje", "tas", "parasol", "koelbox", "rugzak"],
+    "gebouwen": ["menukaart", "servet", "wijnkaart", "asbak", "stoel"],
+    "bomen": ["blad", "eikel", "dop", "tak", "boomstam","boomwortel"],
+    "planten": ["bloem", "blad", "pot", "gieter", "kweekbak"]
 }
 
 bijvoeglijke_naamwoorden = {
-    "voorwerpen": ["roze", "glanzende", "oude", "duurzame"],
+    "voorwerpen": ["roze", "glanzende", "oude", "duurzame","oude","donkere","gele","nieuwe"],
     "meubels": ["comfortabele", "moderne", "klassieke", "verstelbare", "lelijke"],
-    "mensen": ["sympathieke", "slimme", "grappige", "aardige"],
+    "mensen": ["sympathieke", "slimme", "grappige", "aardige","vervelende","boze","vriendelijke","angstige","bezorgde","trotse","kalme","moedige","geduldige"],
     "dieren": ["schattige", "speelse", "lieve", "trouwe"],
     "voertuigen": ["snelle", "efficiënte", "ruime", "luxueuze", "elektrische"],
     "plaatsen": ["drukke", "schone", "gezellige", "veilige"],
@@ -49,10 +49,10 @@ bijvoeglijke_naamwoorden = {
 
 #Werkwoorden in enkelvoudige persoonsvorm in de vorm Hij/Zij/Het met bijpassen voorzetsels.
 werkwoorden = {
-    "voorwerpen": {"ligt": ["op", "onder", "tussen"], "verdwijnt": ["in"]},
+    "voorwerpen": {"ligt": ["op", "onder", "tussen"], "verdwijnt": ["in"],"staat": ["op","onder","naast"],"glijdt": ["in","onder"]},
     "meubels": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "mensen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "dieren": {"kijkt": ["naar"], "springt": ["op", "over"], "ligt": ["naast"], "loopt": ["richting"]},
+    "mensen": {"staat": ["in","op"], "verdwijnt": ["in"], "ligt": ["in"],"danst": ["in","op"],"vecht": ["in","op"]},
+    "dieren": {"kijkt": ["naar"], "springt": ["op", "over"], "ligt": ["naast"], "loopt": ["richting","naar"]},
     "voertuigen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
     "plaatsen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
     "gebouwen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},

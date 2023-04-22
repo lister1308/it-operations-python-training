@@ -52,14 +52,34 @@
         <div>
           <button type="submit" class="btn btn-primary mt-2">Hit me</button>
           <label for="zin-alinea">Parameters:</label>
-          <input type="radio" id="zin-alinea" name="type" value="zin" checked="True">
+          <input type="radio" id="zin-alinea" name="print" value="zin" checked="True">
           <label for="zin-alinea-type">Zin</label>
-          <input type="radio" id="zin-alinea" name="type" value="alinea">
+          <input type="radio" id="zin-alinea" name="print" value="alinea">
           <label for="zin-alinea">Alinea</label>
+          <label for="aantal">Aantal:</label>
+          <select id="aantal" name="aantal">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
           <input type="checkbox" id="sound" name="sound" value="True">
-          <label for="sound">Geluid</label>
+          <label for="sound">Spraak</label>
           <input type="checkbox" id="samenhang" name="samenhang" value="True" checked="True">
           <label for="samenhang">Samenhang</label>
+          <label for="thema">Thema:</label>
+          <select id="thema" name="thema">
+            <option value="random" checked="True">Random</option>
+            <option value="meubels">Meubels</option>
+            <option value="mensen">Mensen</option>
+            <option value="dieren">Dieren</option>
+            <option value="voertuigen">Voertuigen</option>
+            <option value="plaatsen">Plaatsen</option>
+            <option value="gebouwen">Gebouwen</option>
+            <option value="bomen">Bomen</option>
+            <option value="planten">Planten</option>
+          </select>
       </form>
       
       <div class="output-box">
