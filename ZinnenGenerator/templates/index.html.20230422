@@ -49,19 +49,8 @@
     <div class="container my-5">
       <h1 class="mb-4">ZiNnEnGeNeRaToR</h1>
       <form action="/process" method="POST">
-        <div>
-          <button type="submit" class="btn btn-primary mt-2">Hit me</button>
-          <label for="zin-alinea">Parameters:</label>
-          <input type="radio" id="zin-alinea" name="type" value="zin" checked="True">
-          <label for="zin-alinea-type">Zin</label>
-          <input type="radio" id="zin-alinea" name="type" value="alinea">
-          <label for="zin-alinea">Alinea</label>
-          <input type="checkbox" id="sound" name="sound" value="True">
-          <label for="sound">Geluid</label>
-          <input type="checkbox" id="samenhang" name="samenhang" value="True" checked="True">
-          <label for="samenhang">Samenhang</label>
+        <button type="submit" class="btn btn-primary mt-2">Hit me</button>
       </form>
-      
       <div class="output-box">
         <p class="output-text" id="output_text"></p>
       </div>
@@ -84,19 +73,17 @@
         output_image.src = data.image_url;
       });
     </script>
-    
-    <center>
     <table width="90%">
       <tr>
         <td align=center><div class="container my-5">
           <img id="output_image" width=75% src={{url_for('static', filename='itoperations.png')}}>
         </div></td>
-        <td>
-          <img src={{url_for('static', filename='jip-en-janneke2.jpg')}}>
-        </td>
-      </tr>
-    </table>
+    <td>
+    <img src={{url_for('static', filename='jip-en-janneke2.jpg')}}>
+    </td>
+    </tr></table>
+    <center>
     <font size=-2>&copy Copyright 2023 by Frank/Erwin/Tom/Lucas/Bert/Wouter</font>
-    </center>
+  </center>
   </body>
 </html>
