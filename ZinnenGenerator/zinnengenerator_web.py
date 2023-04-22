@@ -12,21 +12,36 @@ def index():
 @app.route("/process", methods=["POST"])
 def process():
     if platform.system() == 'Windows':
-        #output = subprocess.check_output(["python", "c:\\Users\\tepperl\\Python\\it-operations-python-training\\ZinnenGenerator\\zinnengeneratorv2.py","--print","zin","--aantal","1"])
-        runscript = ["python", "c:\\Users\\tepperl\\Python\\it-operations-python-training\\ZinnenGenerator\\zinnengeneratorv2.py"]
+        runscript = ["python", "c:\\Users\\tepperl\\Python\\it-operations-python-training\\ZinnenGenerator\\zinnengeneratorv3.py"]
     else:
-        #output = subprocess.check_output(["/opt/homebrew/bin/python3.9", "/Users/lucas/stack/Python/itoperations/ZinnenGenerator/zinnengeneratorv2.py","--print","zin","--aantal",'1'])
-        runscript = ["/opt/homebrew/bin/python3.9", "/Users/lucas/stack/Python/itoperations/ZinnenGenerator/zinnengenerator-testlucas.py"]
-    # voeg parameters toe
-    #zinalinea_type = request.form.get('type', 'zin') # Standaardwaarde is 'zin'
-
+        runscript = ["/opt/homebrew/bin/python3.9", "/Users/lucas/stack/Python/itoperations/ZinnenGenerator/zinnengeneratorv3.py"]
+    # process parameters vanuit webpagina
+    # print een zin of volledige alinea
+    zinalinea_print = request.form.get('print', 'zin') # Standaardwaarde is 'zin'
+    runscript.extend(["--print",zinalinea_print])
+    # moet de zin worden uitgesproken
     sound = request.form.get('sound', False) # Standaardwaarde is False
     if sound:
         runscript.append("--sound")
 
-    #coherence = request.form.get('coherence', False) # Standaardwaarde is False
+    #if zinalinea_print == 'zin':
+    #    runscript.extend(['--aantal','1'])
+    #else:
+    #    aantal = request.form.get('aantal','5')
+    # aantal zinnen
+    aantal = request.form.get('aantal','1')
+    runscript.extend(['--aantal',aantal])
+    # gebruik maken van samenhang
+    samenhang = request.form.get('samenhang', False) # Standaardwaarde is False
+    if samenhang:
+        runscript.append('--samenhang')
+    # thema
+    thema = request.form.get('thema',None)
+    if not thema == None:
+        runscript.extend(['--thema',thema])
 
-    runscript.extend(["--print","zin","--aantal","1"])
+    # debug
+    print(runscript) 
     # run script
     output = subprocess.check_output(runscript)
 

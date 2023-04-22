@@ -52,10 +52,10 @@
         <div>
           <button type="submit" class="btn btn-primary mt-2">Hit me</button>
           <label for="zin-alinea">Parameters:</label>
-          <input type="radio" id="zin-alinea" name="print" value="zin" checked="True">
-          <label for="zin-alinea-type">Zin</label>
-          <input type="radio" id="zin-alinea" name="print" value="alinea">
-          <label for="zin-alinea">Alinea</label>
+          <input type="radio" id="zin" name="print" value="zin" checked="True">
+          <label for="zin-type">Zin</label>
+          <input type="radio" id="alinea" name="print" value="alinea">
+          <label for="alinea-type">Alinea</label>
           <label for="aantal">Aantal:</label>
           <select id="aantal" name="aantal">
             <option value="1">1</option>
@@ -81,6 +81,23 @@
             <option value="planten">Planten</option>
           </select>
       </form>
+
+      <script>
+        const TypeAlinea = document.getElementById("alinea");
+        const TypeZin = document.getElementById('zin');
+        const aantalSelect = document.getElementById("aantal");
+        
+        TypeAlinea.addEventListener("change", function() {
+          if (TypeAlinea.checked) {
+            aantalSelect.value = "5";
+          }
+        });
+        TypeZin.addEventListener("change", function() {
+          if (TypeZin.checked) {
+            aantalSelect.value = "1";
+          }
+        });
+      </script>
       
       <div class="output-box">
         <p class="output-text" id="output_text"></p>

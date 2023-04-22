@@ -11,10 +11,11 @@ import zinnengenerator_dictv3 as woordenlijsten
 
 # argumenten voor als code vanuit webinterface wordt aangeroepen
 parser = argparse.ArgumentParser(description="Omschrijving: genereer een random zin of zelfs complete alinea")
-parser.add_argument('--samenhang', default=1, help='Is er samenhang tussen de zinnen, default 1 = ja, of 0 = nee')
+parser.add_argument('--samenhang', action='store_true', help='Is er samenhang tussen de zinnen, default 1 = ja, of 0 = nee')
 parser.add_argument('--print', default='alinea', help='Print een zin of alinea')
 parser.add_argument('--aantal', default='5', type=int, help='Print aantal zinnen of zinnen in een alinea')
 parser.add_argument('--sound', action='store_true', help='geef deze mee als je zin wilt laten uitspreken')
+parser.add_argument('--thema',default=None,help="themas zijn: voorwerpen,meubels,mensen,dieren,voertuigen,plaatsen,gebouwen,bomen,planten")
 args = parser.parse_args()
 
 

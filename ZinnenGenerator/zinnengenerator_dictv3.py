@@ -6,7 +6,7 @@ themas = {
     "dieren": ["plaatsen", "gebouwen", "bomen", "planten"],
     "voertuigen": ["plaatsen", "gebouwen"],
     "plaatsen": ["plaatsen"],
-    "gebouwen": ["plaatsen"],
+    "gebouwen": ["plaatsen","bomen","meubels"],
     "bomen": ["plaatsen", "gebouwen"],
     "planten": ["meubels", "voertuigen", "plaatsen", "gebouwen"],
 }
@@ -49,13 +49,61 @@ bijvoeglijke_naamwoorden = {
 
 #Werkwoorden in enkelvoudige persoonsvorm in de vorm Hij/Zij/Het met bijpassen voorzetsels.
 werkwoorden = {
-    "voorwerpen": {"ligt": ["op", "onder", "tussen"], "verdwijnt": ["in"],"staat": ["op","onder","naast"],"glijdt": ["in","onder"]},
-    "meubels": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "mensen": {"staat": ["in","op"], "verdwijnt": ["in"], "ligt": ["in"],"danst": ["in","op"],"vecht": ["in","op"]},
-    "dieren": {"kijkt": ["naar"], "springt": ["op", "over"], "ligt": ["naast"], "loopt": ["richting","naar"]},
-    "voertuigen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "plaatsen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "gebouwen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "bomen": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]},
-    "planten": {"staat": ["in"], "verdwijnt": ["in"], "ligt": ["in"]}
+    "voorwerpen": {
+        "ligt": ["op", "onder", "tussen", "langs", "tegen"],
+        "verdwijnt": ["in", "achter", "onder"],
+        "staat": ["op", "onder", "naast", "tegen", "tussen"],
+        "glijdt": ["in", "onder", "langs", "tegen", "tussen"],
+        "valt": ["op","in","onder","tegen","tussen"],
+        "zweeft": ["onder","over"]
+    },
+    "meubels": {
+        "staat": ["in", "op", "onder", "tegen", "tussen"],
+        "verdwijnt": ["in", "achter", "onder"],
+        "ligt": ["in", "op", "onder", "tegen", "tussen"]
+    },
+    "mensen": {
+        "staat": ["in", "op", "tegen", "voor", "achter"],
+        "verdwijnt": ["in", "achter", "onder"],
+        "ligt": ["in", "op", "onder", "tegen", "naast"],
+        "danst": ["in", "op", "tegen", "voor", "achter"],
+        "vecht": ["in", "op", "tegen", "voor", "achter"],
+        "loopt": ["in","tegen","voor"],
+        "kruipt": ["in","over"],
+        "zit": ["in"]
+    },
+    "dieren": {
+        "kijkt": ["naar", "op", "over", "tegen", "voor"],
+        "springt": ["op", "over", "tegen", "voor", "achter"],
+        "ligt": ["naast", "op", "onder", "tegen", "voor"],
+        "loopt": ["richting", "naar", "langs", "tegen", "voor"],
+        "krabbelt": ["aan","onder"]
+    },
+    "voertuigen": {
+        "staat": ["in", "op", "onder", "tegen", "tussen"],
+        "verdwijnt": ["in", "achter", "onder"],
+        "ligt": ["in", "op", "onder", "tegen", "tussen"]
+    },
+    "plaatsen": {
+        "staat": ["in", "op", "onder", "tegen", "tussen"],
+        "verdwijnt": ["in", "achter", "onder"],
+        "ligt": ["in", "op", "onder", "tegen", "tussen"]
+    },
+    "gebouwen": {
+        "staat": ["in", "bij", "op", "onder", "tegen"],
+        "verdwijnt": ["in", "achter", "onder"],
+        "ligt": ["in", "bij", "op", "onder", "tegen"]
+    },
+    "bomen": {
+        "staat": ["bij", "op", "onder", "tegen", "naast"],
+        "verdwijnt": ["in", "achter", "onder"],
+        "ligt": ["in", "op", "onder", "tegen", "naast"]
+    },
+    "planten": {
+        "staat": ["in", "op", "onder", "tegen", "tussen"],
+        "verdwijnt": ["in", "achter", "onder"],
+        "ligt": ["in", "op", "onder", "tegen", "tussen"],
+        "bloeit": ["in","over"],
+        "groeit": ["in","over","onder"]
+    }
 }
