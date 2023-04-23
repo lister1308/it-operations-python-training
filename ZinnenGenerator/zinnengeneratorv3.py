@@ -26,7 +26,7 @@ if args.thema == 'random':
 # er te veel uitzonderingen zijn en dit zorgt voor niet lekker lopende zinnen.
 def lidwoord(zelfstandig_naamwoord):
     # uitzondering voor funfactor namen docenten
-    if zelfstandig_naamwoord in woordenlijsten.docenten:
+    if zelfstandig_naamwoord.lower() in woordenlijsten.docenten:
         return ""
     try: 
         url = f"https://anw.ivdnt.org/article/{zelfstandig_naamwoord}"
