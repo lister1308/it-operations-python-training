@@ -40,15 +40,18 @@ def process():
     thema = request.form.get('thema',None)
     if not thema == None:
         runscript.extend(['--thema',thema])
-
-    # debug
-    #print(runscript) 
     # run script
     output = subprocess.check_output(runscript)
 
-    if output.decode().strip()[-1] in docenten:
-        image_url = f"/static/str(output.decode().strip()[-1]-foto.png)"
-    else:
+    # controleer of 1 van de docenten het onderwerp is
+    zin = str(output.decode().strip()).split()
+    gevonden = False
+    for woord in zin:
+        if woord in docenten:
+            image_url = f"/static/{woord}-foto.png"
+            gevonden = True
+            break
+    if not gevonden:
         # zoek naar afbeeldingen met de zoekopdracht uit 'output'
         results = ddg_images(output.decode().strip())
         # controleer of er afbeeldingsresultaten zijn
@@ -56,6 +59,8 @@ def process():
         if results:
             # haal de URL van de eerste afbeelding op
             image_url = results[0]['image']
+        if image_url == '':
+            image_url = "/static/cursusburo-logo.png"
     return jsonify({
     "text": output.decode().strip(),
     "image_url": image_url
