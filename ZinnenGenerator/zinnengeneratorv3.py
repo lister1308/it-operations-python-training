@@ -121,7 +121,8 @@ class Volzin:
                 self.zin = self.onderwerp + " " + self.werkwoord + "."
             else:
                 self.zin = self.onderwerp + " " + self.werkwoord + " " + self.koppelwoord + " " + self.lijdend_voorwerp + "."
-        self.zin = self.zin.capitalize()
+        # Spatie door wegvallen lidwoord verwijderen wanneer nodig (docenten) en zin met een hoofdletter laten beginnen.
+        self.zin = (self.zin.lstrip(' ')).capitalize()
         
     def __str__(self):
         return self.zin
