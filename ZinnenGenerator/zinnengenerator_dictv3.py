@@ -3,7 +3,7 @@ themas = {
     "voorwerpen": ["meubels", "voertuigen", "plaatsen", "gebouwen"],
     "meubels": ["plaatsen", "gebouwen"],
     "mensen": ["meubels", "voertuigen", "plaatsen", "gebouwen"],
-    "dieren": ["plaatsen", "gebouwen", "bomen", "planten"],
+    "dieren": ["plaatsen", "gebouwen", "bomen", "planten","mensen"],
     "voertuigen": ["plaatsen", "gebouwen"],
     "plaatsen": ["plaatsen"],
     "gebouwen": ["plaatsen","bomen","meubels"],
@@ -11,10 +11,12 @@ themas = {
     "planten": ["meubels", "voertuigen", "plaatsen", "gebouwen"],
 }
 
+docenten = ["Rudi","Evert","Obbert","Henny"]
+
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
     "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir","stoel","burostoel"],
-    "mensen": ["rudi","evert","henny","vriend", "familie", "collega", "leraar", "politieagent", "vader","ouders","dochter","zoon","verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
+    "mensen": ["Rudi","Evert","Henny","Obbert","vriend", "familie", "collega", "leraar", "politieagent", "vader","ouders","dochter","zoon","verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
     "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang","tijger","olifant","bij"],
     "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
     "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis", "bos", "pretpark", "concertzaal"],
@@ -77,7 +79,8 @@ werkwoorden = {
         "springt": ["op", "over", "tegen", "voor", "achter"],
         "ligt": ["naast", "op", "onder", "tegen", "voor"],
         "loopt": ["richting", "naar", "langs", "tegen", "voor"],
-        "krabbelt": ["aan","onder"]
+        "krabbelt": ["aan","onder"],
+        "likt": ["aan"]
     },
     "voertuigen": {
         "staat": ["in", "op", "onder", "tegen", "tussen"],

@@ -25,6 +25,9 @@ if args.thema == 'random':
 # Functie voor het bepalen van het lidwoord. Afgestapt van bepaling dmv logica in de functie aangezien 
 # er te veel uitzonderingen zijn en dit zorgt voor niet lekker lopende zinnen.
 def lidwoord(zelfstandig_naamwoord):
+    # uitzondering voor funfactor namen docenten
+    if zelfstandig_naamwoord in woordenlijsten.docenten:
+        return ""
     try: 
         url = f"https://anw.ivdnt.org/article/{zelfstandig_naamwoord}"
         response = requests.get(url)
