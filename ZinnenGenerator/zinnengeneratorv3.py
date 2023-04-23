@@ -28,16 +28,15 @@ def lidwoord(zelfstandig_naamwoord):
     # uitzondering voor funfactor namen docenten
     if zelfstandig_naamwoord.lower() in woordenlijsten.docenten:
         return ""
+    # Try voor het geval de pagina niet bereikbaar is/een foutmelding heeft of het woord niet gevonden kan worden.
+    # In dat geval return dan "een".
     try: 
         url = f"https://anw.ivdnt.org/article/{zelfstandig_naamwoord}"
         response = requests.get(url)
         # De HTML van de pagina parsen
         soup = BeautifulSoup(response.text, 'html.parser')
-
-        # Het element vinden met de tag 'td' dat volgt op een element met de tekst 'Lidwoord'
+        # Zoek de rijtitel (th) 'Lidwoord' in de HTML broncode en zoek vervolgens devolgende cel (td) in de rij en haal hiervan de waarde op.
         td_element = soup.find('th', string='Lidwoord').find_next('td')
-
-        # Het lidwoord ophalen uit de tekst tussen de tags
         result = td_element.text.strip().lower()
                 
         if result in ["het", "de"]:
@@ -48,7 +47,7 @@ def lidwoord(zelfstandig_naamwoord):
         return "een"
 
 
-# alternatief
+# Alternatief met logica
 #def lidwoord(zelfstandig_naamwoord):
 #    if zelfstandig_naamwoord[0] in ['a', 'e', 'i', 'o', 'u']:
 #        return 'het'
