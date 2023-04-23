@@ -21,7 +21,8 @@ def VertelMij(text):
     if platform.system() == 'Windows':
         engine.setProperty('voice', voices[0].id) #for the default US Male voice
     else:
-        engine.setProperty('voice', voices[0].id) #for the default US Male voice
+        #engine.setProperty('voice', voices[3].id) #for the default US Male voice
+        engine.setProperty('voice', 'dutch') #for the default US Male voice
     #engine.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\MSTTS_V110_nlNL_Frank')
     engine.setProperty('rate', 150)
     #print(text)
