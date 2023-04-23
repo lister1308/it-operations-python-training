@@ -11,12 +11,12 @@ themas = {
     "planten": ["meubels", "voertuigen", "plaatsen", "gebouwen"],
 }
 
-docenten = ["Rudi","Evert","Obbert","Henny"]
+docenten = ["rudi","evert","obbert","henny"]
 
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
     "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir","stoel","burostoel"],
-    "mensen": ["Rudi","Evert","Henny","Obbert","vriend", "familie", "collega", "leraar", "politieagent", "vader","ouders","dochter","zoon","verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
+    "mensen": ["Rudi","Evert","Henny","Obbert","vriend", "familie", "collega", "leraar", "politieagent", "vader","ouder","opa","oma","dochter","zoon","verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
     "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang","tijger","olifant","bij"],
     "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
     "plaatsen": ["park", "strand", "supermarkt", "ziekenhuis", "bos", "pretpark", "concertzaal"],

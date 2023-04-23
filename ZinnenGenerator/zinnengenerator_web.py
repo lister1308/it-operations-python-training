@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, jsonify
 import subprocess
 import platform
 from duckduckgo_search import ddg_images
+from zinnengenerator_dictv3 import docenten
 
 app = Flask(__name__)
 
@@ -45,13 +46,16 @@ def process():
     # run script
     output = subprocess.check_output(runscript)
 
-    # zoek naar afbeeldingen met de zoekopdracht uit 'output'
-    results = ddg_images(output.decode().strip())
-    # controleer of er afbeeldingsresultaten zijn
-    image_url = ''
-    if results:
-        # haal de URL van de eerste afbeelding op
-        image_url = results[0]['image']
+    if output.decode().strip()[-1] in docenten:
+        image_url = f"/static/str(output.decode().strip()[-1]-foto.png)"
+    else:
+        # zoek naar afbeeldingen met de zoekopdracht uit 'output'
+        results = ddg_images(output.decode().strip())
+        # controleer of er afbeeldingsresultaten zijn
+        image_url = ''
+        if results:
+            # haal de URL van de eerste afbeelding op
+            image_url = results[0]['image']
     return jsonify({
     "text": output.decode().strip(),
     "image_url": image_url
