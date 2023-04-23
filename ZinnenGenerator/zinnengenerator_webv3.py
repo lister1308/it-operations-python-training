@@ -13,9 +13,11 @@ def index():
 @app.route("/process", methods=["POST"])
 def process():
     if platform.system() == 'Windows':
-        runscript = ["python", "c:\\Users\\tepperl\\Python\\it-operations-python-training\\ZinnenGenerator\\zinnengeneratorv3.py"]
+        #runscript = ["python", "c:\\Users\\tepperl\\Python\\it-operations-python-training\\ZinnenGenerator\\zinnengeneratorv3.py"]
+        runscript = ["python", "zinnengeneratorv3.py"]
     else:
-        runscript = ["/opt/homebrew/bin/python3.9", "/Users/lucas/stack/Python/itoperations/ZinnenGenerator/zinnengeneratorv3.py"]
+        #runscript = ["/opt/homebrew/bin/python3.9", "/Users/lucas/stack/Python/itoperations/ZinnenGenerator/zinnengeneratorv3.py"]
+        runscript = ["/opt/homebrew/bin/python3.9", "zinnengeneratorv3.py"]
     # process parameters vanuit webpagina
     # print een zin of volledige alinea
     zinalinea_print = request.form.get('print', 'zin') # Standaardwaarde is 'zin'
@@ -24,11 +26,6 @@ def process():
     sound = request.form.get('sound', False) # Standaardwaarde is False
     if sound:
         runscript.append("--sound")
-
-    #if zinalinea_print == 'zin':
-    #    runscript.extend(['--aantal','1'])
-    #else:
-    #    aantal = request.form.get('aantal','5')
     # aantal zinnen
     aantal = request.form.get('aantal','1')
     runscript.extend(['--aantal',aantal])
@@ -43,8 +40,11 @@ def process():
     # run script
     output = subprocess.check_output(runscript)
 
+    output = output.decode().strip()
+    output = str(output)
+    #
     # controleer of 1 van de docenten het onderwerp is
-    zin = str(output.decode().strip()).split()
+    zin = output.split()
     gevonden = False
     for woord in zin:
         if woord in docenten:
@@ -53,7 +53,7 @@ def process():
             break
     if not gevonden:
         # zoek naar afbeeldingen met de zoekopdracht uit 'output'
-        results = ddg_images(output.decode().strip())
+        results = ddg_images(output)
         # controleer of er afbeeldingsresultaten zijn
         image_url = ''
         if results:
@@ -62,7 +62,7 @@ def process():
         if image_url == '':
             image_url = "/static/cursusburo-logo.png"
     return jsonify({
-    "text": output.decode().strip(),
+    "text": output,
     "image_url": image_url
 })
 
