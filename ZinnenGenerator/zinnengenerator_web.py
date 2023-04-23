@@ -41,7 +41,7 @@ def process():
         runscript.extend(['--thema',thema])
 
     # debug
-    print(runscript) 
+    #print(runscript) 
     # run script
     output = subprocess.check_output(runscript)
 

@@ -18,6 +18,9 @@ parser.add_argument('--sound', action='store_true', help='geef deze mee als je z
 parser.add_argument('--thema',default=None,help="themas zijn: voorwerpen,meubels,mensen,dieren,voertuigen,plaatsen,gebouwen,bomen,planten")
 args = parser.parse_args()
 
+if args.thema == 'random':
+    args.thema = None
+
 
 # Functie voor het bepalen van het lidwoord. Afgestapt van bepaling dmv logica in de functie aangezien 
 # er te veel uitzonderingen zijn en dit zorgt voor niet lekker lopende zinnen.
@@ -152,15 +155,15 @@ def alinea (samenhang = 1, aantalzinnen = 2):
     alinea = ""
     if samenhang == 0:
         for _ in range(aantalzinnen):
-            zin = Volzin(soort="Uitgebreid")
+            zin = Volzin(soort="Uitgebreid",thema=args.thema)
             alinea = alinea + " " + zin.zin
 
     if samenhang == 1:
-        zin1 = Volzin(soort="Uitgebreid")
+        zin1 = Volzin(soort="Uitgebreid",thema=args.thema)
         alinea = zin1.zin
         for _ in range(aantalzinnen-1):
             onderwerpzin = zin1.lijdend_voorwerp
-            zin2 = Volzin(soort="Uitgebreid",onderw=onderwerpzin)
+            zin2 = Volzin(soort="Uitgebreid",onderw=onderwerpzin,thema=args.thema)
             alinea = alinea + " " + zin2.zin
             zin1=zin2
             
@@ -176,7 +179,7 @@ def alinea (samenhang = 1, aantalzinnen = 2):
 #
 if args.print == 'zin':
     for _ in range(int(args.aantal)):
-       mijn_zin = Volzin()
+       mijn_zin = Volzin(thema=args.thema)
        print(mijn_zin)
        if args.sound:
             TekstNaarSpraak.VertelMij(mijn_zin)

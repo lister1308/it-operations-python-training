@@ -13,7 +13,7 @@ themas = {
 
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
-    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir","stoel","burostoel",""],
+    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir","stoel","burostoel"],
     "mensen": ["rudi","evert","henny","vriend", "familie", "collega", "leraar", "politieagent", "vader","ouders","dochter","zoon","verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
     "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang","tijger","olifant","bij"],
     "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
@@ -65,7 +65,7 @@ werkwoorden = {
     "mensen": {
         "staat": ["in", "op", "tegen", "voor", "achter"],
         "verdwijnt": ["in", "achter", "onder"],
-        "ligt": ["in", "op", "onder", "tegen", "naast"],
+        "ligt": ["op", "onder", "tegen", "naast"],
         "danst": ["in", "op", "tegen", "voor", "achter"],
         "vecht": ["in", "op", "tegen", "voor", "achter"],
         "loopt": ["in","tegen","voor"],
