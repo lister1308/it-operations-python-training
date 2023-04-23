@@ -118,7 +118,7 @@
         });
         const data = await response.json();
         output_text.innerText = data.text;
-        output_image.src = data.image_url1;
+        output_image1.src = data.image_url1;
       });
     </script>
     
@@ -126,10 +126,11 @@
     <table width="90%">
       <tr>
         <td align=center><div class="container my-5">
-          <img id="output_image" width=75% src={{url_for('static', filename='itoperations.png')}}>
+          <img id="output_image1" width=75% src={{url_for('static', filename='itoperations.png')}}>
+          <img id="output_image2" width=75% src="">
         </div></td>
         <td>
-          <img src={{url_for('static', filename='jip-en-janneke2.jpg')}}>
+          <img id="output_image_rechts" src={{url_for('static', filename='jip-en-janneke2.jpg')}}>
         </td>
       </tr>
     </table>

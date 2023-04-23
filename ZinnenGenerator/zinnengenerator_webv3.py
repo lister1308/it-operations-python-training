@@ -48,7 +48,7 @@ def process():
     gevonden = False
     for woord in zin:
         if woord in docenten:
-            image_url = f"/static/{woord}-foto.png"
+            image_url = f"/static/{woord}-animated.gif"
             gevonden = True
             break
     if not gevonden:
@@ -63,7 +63,7 @@ def process():
             image_url = "/static/cursusburo-logo.png"
     return jsonify({
     "text": output,
-    "image_url": image_url
+    "image_url1": image_url
 })
 
 app.run(host='0.0.0.0', port=8080)
