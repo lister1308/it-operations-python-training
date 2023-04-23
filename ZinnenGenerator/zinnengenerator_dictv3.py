@@ -15,7 +15,7 @@ docenten = ["rudi","evert","obbert","henny"]
 
 zelfstandige_naamwoorden = {
     "voorwerpen": ["telefoon", "sleutel", "sjaal", "zonnebril", "muts", "revolver"],
-    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "dressoir","stoel","burostoel"],
+    "meubels": ["bank", "bureau", "kruk", "kast", "tafel", "bijzettafel","stoel","burostoel"],
     "mensen": ["Rudi","Evert","Henny","Obbert","vriend", "familie", "collega", "leraar", "politieagent", "vader","ouder","opa","oma","dochter","zoon","verpleegkundige", "chirurg", "helpdeskmedewerker", "systeembeheerder"],
     "dieren": ["hond", "kat", "konijn", "vogel", "rups", "kikker", "slang","tijger","olifant","bij"],
     "voertuigen": ["fiets", "auto", "bus", "trein", "e-bike", "vrachtwagen", "brandweerauto"],
