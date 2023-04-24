@@ -1,11 +1,6 @@
 import random
-# python -m pip install requests
 import requests
-# python -m pip install bs4
 from bs4 import BeautifulSoup
-#
-import argparse
-import TekstNaarSpraak
 import zinnengenerator_dictv3 as woordenlijsten
 
 
@@ -83,8 +78,7 @@ def onderwerp(thema=None):
     else:
         return (lidwoord(zsn) + " " + bijvoeglijk_naamwoord(thema) + " " + zsn).lstrip(' ')
 
-#<zin> ::= <onderwerp> <werkwoord> “.” | <onderwerp> <werkwoord> <koppelwoord> <lijdend_voorwerp> “.”
-
+# Genereer een volzin
 class Volzin:
     def __init__(self, soort=None, thema=None, onderw=None):
         if thema is None:
@@ -128,23 +122,7 @@ def volzin(thema=None):
         zin = onderwerp(thema) + " " + werkwoord (thema) + " " + koppelwoord() + " " + lijdend_voorwerp(thema) + "."
     return zin.capitalize()
 '''
-
-# Meerdere zinnen met een bepaalde samenhang vormen samen een alinea:
-# <alinea> ::= <zin> | <zin> <zin> | <zin> <zin> <zin> | …
-# De samenhang wordt veroorzaakt doordat de zinnen in een alinea naar elkaar verwijzen, 
-# over het zelfde onderwerp verhalen of overeenkomstige onderwerpen bevatten. 
-# Deze samenhang wordt in te realiseren programma bestuurd met de parameter samenhang.
-
-# Met de parameter samenhang in de functie alinea wordt bedoeld, de mate waarin een onderwerp in 
-# de volgende zin herhaald wordt. 
-
-# Met 0 is er geen herhaling, met 1 wordt een gebruikt lijdend voorwerp in de volgende zin als 
-# onderwerp gebruikt, enzovoorts.
-
-# Voorbeelden
-# Het volle glas staat op de tafel. De kat loopt door de kamer. (samenhang 0)
-# Het volle glas staat op de tafel. De tafel staat in de kamer. (samenhang 1)
-
+#Genereer een alinea
 def alinea (samenhang = 1, aantalzinnen = 2, thema=None):
     alinea = ""
     if thema is None:
