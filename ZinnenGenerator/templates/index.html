@@ -6,10 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-SBxX9vP+WJY81s/rR+4ChGzH4p4TXt+1J26pZ8oA+pXfJhD2M2OheUDyRp8wW/pLz1ZC1nZPXGcveNThx9nSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-      body {
-        background-size: 50%;
-        background-repeat: no-repeat;
-        background-position: center;
+      .body {
+        font-family: Verdana;
       }
 
       .form-control {
@@ -46,6 +44,7 @@
 
   </head>
   <body>
+    <div class="background-image"></div>
     <div class="container my-5">
       <h1 class="mb-4">ZiNnEnGeNeRaToR</h1>
       <form action="/process" method="POST">
@@ -125,13 +124,13 @@
     </script>
     
     <center>
-    <table width="90%">
+    <table style="width: 90%; height: 100%; table-layout: fixed;margin: auto;border-collapse: collapse;">
       <tr>
-        <td align=center><div class="container my-5">
-          <img id="output_image" width=75% src={{url_for('static', filename='itoperations.png')}}>
+        <td style="text-align: center; vertical-align: middle; width: 50%"><div class="container my-5">
+          <img id="output_image" width=60% src={{url_for('static', filename='itoperations.png')}}>
         </div></td>
-        <td>
-          <img src={{url_for('static', filename='jip-en-janneke2.jpg')}}>
+        <td style="text-align: center; vertical-align: middle; width: 50%"> 
+          <img width=100% src={{url_for('static', filename='jip-en-janneke2.jpg')}}>
         </td>
       </tr>
     </table>
