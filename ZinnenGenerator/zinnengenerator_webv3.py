@@ -47,7 +47,7 @@ def process():
     zin = output.split()
     gevonden = False
     for woord in zin:
-        if woord in docenten:
+        if woord.lower() in docenten:
             image_url = f"/static/{woord}-animated.gif"
             gevonden = True
             break
