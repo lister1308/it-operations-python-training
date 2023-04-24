@@ -6,7 +6,7 @@ themas = {
     "dieren": ["plaatsen", "gebouwen", "bomen", "planten","mensen"],
     "voertuigen": ["plaatsen", "gebouwen"],
     "plaatsen": ["gebouwen","plaatsen"],
-    "gebouwen": ["plaatsen","bomen","meubels"],
+    "gebouwen": ["plaatsen","gebouwen"],
     "bomen": ["plaatsen", "gebouwen"],
     "planten": ["meubels", "voertuigen", "plaatsen", "gebouwen"],
 }
@@ -71,7 +71,8 @@ werkwoorden = {
         "likt": ["aan"]
     },
     "voertuigen": {
-        "staat": ["in", "op", "onder", "tegen", "tussen"],
+        "rijdt": ["naar","om","langs"],
+        "staat": ["in", "op", "tegen", "tussen"],
         "verdwijnt": ["in", "achter", "onder"],
         "ligt": ["in", "op", "onder", "tegen", "tussen"]
     },
