@@ -111,6 +111,8 @@
       const output = document.getElementById('output_text');
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
+        output_text.innerText = null;
+        output_image.src = null;
         const formData = new FormData(event.target);
         const response = await fetch('/process', {
           method: 'POST',
