@@ -5,7 +5,7 @@ themas = {
     "mensen": ["meubels", "voertuigen", "plaatsen", "gebouwen"],
     "dieren": ["plaatsen", "gebouwen", "bomen", "planten","mensen"],
     "voertuigen": ["plaatsen", "gebouwen"],
-    "plaatsen": ["plaatsen"],
+    "plaatsen": ["gebouwen","plaatsen"],
     "gebouwen": ["plaatsen","bomen","meubels"],
     "bomen": ["plaatsen", "gebouwen"],
     "planten": ["meubels", "voertuigen", "plaatsen", "gebouwen"],
@@ -23,18 +23,6 @@ zelfstandige_naamwoorden = {
     "gebouwen": ["kasteel", "museum", "restaurant", "hotel", "vliegveld", "theater"],
     "bomen": ["eik", "beuk", "den", "esdoorn", "kastanje", "wilg"],
     "planten": ["cactus", "orchidee", "tulp", "varen", "klimop", "monstera", "duizendknoop", "lavendel"]
-}
-
-lijdende_voorwerpen = {
-    "voorwerpen": ["kabel", "oplader", "adapter", "toetsenbord", "speaker","computer","netwerkswitch"],
-    "meubels": ["kussen", "plaid", "stoelkussen", "onderzetter", "schemerlamp"],
-    "mensen": ["brief", "cadeau", "paraplu", "tas", "boek"],
-    "dieren": ["bal", "speeltje", "riem", "voerbak", "halsband"],
-    "voertuigen": ["helm", "stoelhoes", "sneeuwkettingen", "dakdragers", "fietsendrager"],
-    "plaatsen": ["karretje", "tas", "parasol", "koelbox", "rugzak"],
-    "gebouwen": ["menukaart", "servet", "wijnkaart", "asbak", "stoel"],
-    "bomen": ["blad", "eikel", "dop", "tak", "boomstam","boomwortel"],
-    "planten": ["bloem", "blad", "pot", "gieter", "kweekbak"]
 }
 
 bijvoeglijke_naamwoorden = {
@@ -88,9 +76,7 @@ werkwoorden = {
         "ligt": ["in", "op", "onder", "tegen", "tussen"]
     },
     "plaatsen": {
-        "staat": ["in", "op", "onder", "tegen", "tussen"],
-        "verdwijnt": ["in", "achter", "onder"],
-        "ligt": ["in", "op", "onder", "tegen", "tussen"]
+        "ligt": ["naast"]
     },
     "gebouwen": {
         "staat": ["in", "bij", "op", "onder", "tegen"],
