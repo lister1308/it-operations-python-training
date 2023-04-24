@@ -69,7 +69,7 @@ def koppelwoord(thema, werkwoord):
 
 # 
 def lijdend_voorwerp(thema=None):
-    return onderwerp("mensen")
+    return onderwerp(thema)
 
 # Haal het werkwoord op uit de dictionary passend bij het onderwerpthema.
 # Wanneer geen thema meegegeven, kies dan random een thema uit de dictionary. 
