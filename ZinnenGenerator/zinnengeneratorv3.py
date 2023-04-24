@@ -110,15 +110,15 @@ class Volzin:
         self.thema = thema
         self.onderwerp = onderw
 
-        self.werkwoord = werkwoord(thema)
-        self.koppelwoord = koppelwoord(thema, self.werkwoord)
+        self.werkwoord = werkwoord(self.thema)
+        self.koppelwoord = koppelwoord(self.thema, self.werkwoord)
         self.lijdend_voorwerp_thema = random.choice(woordenlijsten.themas[thema])
         # Kies een random bijpassen thema bij het onderwerp thema
         self.lijdend_voorwerp = lijdend_voorwerp(self.lijdend_voorwerp_thema)
         # Zorg dat het onderwerp en lijdend voorwerp niet hetzelfde zelfstandige naamwoord bevatten
         # Haal voor het vergelijken het bijvoegelijke naamwoord er af
         while (self.lijdend_voorwerp.split())[-1] == (self.onderwerp.split())[-1]:
-            self.lijdend_voorwerp = lijdend_voorwerp(thema) 
+            self.lijdend_voorwerp = lijdend_voorwerp(self.thema) 
         #Simpele of uitgebreide zinnen
         if self.soort == "Simpel":
             self.zin = self.onderwerp + " " + self.werkwoord + "."
