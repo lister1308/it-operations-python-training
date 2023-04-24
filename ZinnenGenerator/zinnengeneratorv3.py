@@ -172,7 +172,7 @@ def alinea (samenhang = 1, aantalzinnen = 2, thema=None):
         alinea = zin1.zin
         for _ in range(aantalzinnen-1):
             onderwerpzin = zin1.lijdend_voorwerp
-            zin2 = Volzin(soort="Uitgebreid",onderw=onderwerpzin,thema=args.thema)
+            zin2 = Volzin(soort="Uitgebreid",onderw=onderwerpzin,thema=zin1.lijdend_voorwerp_thema)
             alinea = alinea + " " + zin2.zin
             zin1=zin2
             
