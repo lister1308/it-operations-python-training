@@ -112,7 +112,7 @@ class Volzin:
 
         self.werkwoord = werkwoord(self.thema)
         self.koppelwoord = koppelwoord(self.thema, self.werkwoord)
-        self.lijdend_voorwerp_thema = random.choice(woordenlijsten.themas[thema])
+        self.lijdend_voorwerp_thema = random.choice(woordenlijsten.themas[self.thema])
         # Kies een random bijpassen thema bij het onderwerp thema
         self.lijdend_voorwerp = lijdend_voorwerp(self.lijdend_voorwerp_thema)
         # Zorg dat het onderwerp en lijdend voorwerp niet hetzelfde zelfstandige naamwoord bevatten
