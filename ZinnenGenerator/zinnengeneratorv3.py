@@ -1,7 +1,7 @@
 # zinnengenerator
 import argparse
 import TekstNaarSpraak
-from zinnengenerator_taal import *
+from zinnengenerator_taal import alinea, Volzin
 
 # Argumenten voor als code vanuit webinterface wordt aangeroepen
 parser = argparse.ArgumentParser(description="Omschrijving: genereer een random zin of zelfs complete alinea")
